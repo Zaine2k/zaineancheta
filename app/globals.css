@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2eadf;
+  --foreground: #111111;
+
+  --acid: #d9ff3f;
+  --blue: #3155ff;
+  --orange: #ff6433;
+  --pink: #ff79c8;
+  --cyan: #6ff7ff;
+  --yellow: #ffd84d;
+  --violet: #9a6bff;
+
+  --line: rgba(17, 17, 17, 0.22);
 }
 
 @theme inline {
@@ -12,15 +22,612 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+
+  background:
+    radial-gradient(
+      circle at 18% 20%,
+      rgba(49, 85, 255, 0.22),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(255, 121, 200, 0.26),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(255, 100, 51, 0.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 25% 82%,
+      rgba(111, 247, 255, 0.2),
+      transparent 24%
+    ),
+    var(--background);
+
   color: var(--foreground);
+
   font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  padding: 2rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.02)
+    );
+
+  border-bottom: 1px solid var(--foreground);
+
+  isolation: isolate;
+}
+
+/* organic ink line */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 145%;
+  height: 2px;
+
+  left: -22%;
+  top: 57%;
+
+  background: var(--foreground);
+
+  opacity: 0.22;
+
+  transform: rotate(-5deg);
+
+  filter: blur(0.2px);
+
+  z-index: 0;
+}
+
+/* organic yellow stain */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 230px;
+
+  right: 4%;
+  top: 5%;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.35),
+      transparent 35%
+    ),
+    linear-gradient(
+      140deg,
+      var(--acid),
+      var(--yellow),
+      var(--orange)
+    );
+
+  border: 1px solid rgba(17, 17, 17, 0.8);
+
+  border-radius:
+    52% 48% 61% 39%
+    /
+    43% 56% 44% 57%;
+
+  transform:
+    rotate(10deg)
+    scale(1.02);
+
+  filter:
+    saturate(1.1)
+    contrast(1.02);
+
+  opacity: 0.95;
+
+  z-index: 0;
+}
+
+/* =========================================
+   THREE.JS
+========================================= */
+
+.hero__scene {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+}
+
+.hero__scene canvas {
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* =========================================
+   ORGANIC COLOR FORMS
+========================================= */
+
+.hero__blob {
+  position: absolute;
+
+  width: 430px;
+  height: 380px;
+
+  left: 1%;
+  bottom: -135px;
+
+  border-radius:
+    48% 52% 39% 61%
+    /
+    54% 40% 60% 46%;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.25),
+      transparent 32%
+    ),
+    linear-gradient(
+      150deg,
+      var(--blue) 0%,
+      var(--violet) 42%,
+      var(--pink) 100%
+    );
+
+  border: 1px solid rgba(17, 17, 17, 0.8);
+
+  transform:
+    rotate(-11deg)
+    skewX(-2deg);
+
+  filter:
+    saturate(1.15)
+    contrast(1.05);
+
+  opacity: 0.92;
+
+  z-index: 0;
+}
+
+/* soft cyan stain */
+
+.hero__circle {
+  position: absolute;
+
+  width: 155px;
+  height: 135px;
+
+  left: 56%;
+  top: 12%;
+
+  border-radius:
+    61% 39% 54% 46%
+    /
+    43% 58% 42% 57%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.4),
+      transparent 28%
+    ),
+    var(--cyan);
+
+  border: 1px solid rgba(17, 17, 17, 0.75);
+
+  transform: rotate(13deg);
+
+  filter: blur(0.1px);
+
+  z-index: 0;
+}
+
+/* orange organic chip */
+
+.hero__tiny-square {
+  position: absolute;
+
+  width: 72px;
+  height: 64px;
+
+  right: 28%;
+  bottom: 14%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ff8d55,
+      var(--orange)
+    );
+
+  border: 1px solid rgba(17, 17, 17, 0.85);
+
+  border-radius:
+    45% 55% 62% 38%
+    /
+    60% 43% 57% 40%;
+
+  transform: rotate(-15deg);
+
+  z-index: 2;
+}
+
+/* =========================================
+   EXTRA ORGANIC LIGHT / COLOR STAINS
+========================================= */
+
+.hero__wash {
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  right: 16%;
+  bottom: -180px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 121, 200, 0.22) 0%,
+      rgba(255, 121, 200, 0.12) 34%,
+      transparent 70%
+    );
+
+  filter: blur(40px);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.hero__wash--blue {
+  width: 420px;
+  height: 420px;
+
+  left: -100px;
+  top: -130px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(49, 85, 255, 0.18) 0%,
+      rgba(49, 85, 255, 0.1) 36%,
+      transparent 70%
+    );
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.hero__content {
+  position: relative;
+
+  width: 100%;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+.hero h1 {
+  margin: 0;
+
+  max-width: 1300px;
+
+  font-size: clamp(5rem, 13vw, 14rem);
+
+  font-weight: 900;
+
+  line-height: 0.72;
+
+  letter-spacing: -0.09em;
+
+  text-transform: uppercase;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero h1 span:first-child {
+  color: var(--foreground);
+
+  transform:
+    translateX(-0.02em)
+    rotate(-0.6deg);
+}
+
+.hero h1 span:last-child {
+  margin-left: 8vw;
+
+  color: var(--blue);
+
+  transform:
+    rotate(-2deg)
+    skewX(-1deg);
+
+  text-shadow:
+    2px 2px 0 var(--pink),
+    5px 5px 0 var(--acid),
+    8px 8px 0 rgba(17, 17, 17, 0.18);
+}
+
+/* =========================================
+   ROLE
+========================================= */
+
+.hero__role {
+  position: absolute;
+
+  right: 2%;
+  bottom: 7%;
+
+  margin: 0;
+
+  padding: 0.85rem 1.2rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff9bd4,
+      var(--pink)
+    );
+
+  color: var(--foreground);
+
+  border: 1px solid var(--foreground);
+
+  font-family: monospace;
+
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  box-shadow:
+    5px 5px 0 rgba(17, 17, 17, 0.9);
+
+  transform: rotate(1.5deg);
+}
+
+/* =========================================
+   LABELS
+========================================= */
+
+.hero__label {
+  position: absolute;
+
+  z-index: 3;
+
+  font-family: monospace;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.hero__label--top {
+  top: 2rem;
+  left: 2rem;
+
+  padding: 0.4rem 0.65rem;
+
+  background: var(--acid);
+
+  border: 1px solid var(--foreground);
+
+  transform: rotate(-2deg);
+
+  border-radius:
+    4px 8px 3px 7px;
+}
+
+.hero__label--side {
+  right: 1.5rem;
+
+  top: 50%;
+
+  writing-mode: vertical-rl;
+
+  transform:
+    translateY(-50%)
+    rotate(0.5deg);
+
+  background: var(--cyan);
+
+  padding: 0.7rem 0.35rem;
+
+  border: 1px solid var(--foreground);
+
+  border-radius:
+    3px 7px 4px 8px;
+}
+
+/* =========================================
+   PAPER TEXTURE
+========================================= */
+
+.hero__noise {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 5;
+
+  pointer-events: none;
+
+  opacity: 0.12;
+
+  mix-blend-mode: multiply;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' seed='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.65'/%3E%3C/svg%3E");
+}
+
+/* paper fibers */
+
+.hero__texture {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  opacity: 0.07;
+
+  background-image:
+    repeating-linear-gradient(
+      7deg,
+      rgba(17, 17, 17, 0.22) 0,
+      rgba(17, 17, 17, 0.22) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+
+  mix-blend-mode: multiply;
+
+  filter: blur(0.3px);
+}
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+section:not(.hero) {
+  min-height: 100vh;
+
+  padding: 4rem 2rem;
+
+  border-bottom: 1px solid var(--foreground);
+}
+
+section:not(.hero) h2 {
+  font-size: clamp(3rem, 8vw, 8rem);
+
+  letter-spacing: -0.06em;
+
+  line-height: 0.9;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(4rem, 19vw, 7rem);
+
+    line-height: 0.78;
+  }
+
+  .hero h1 span:last-child {
+    margin-left: 0;
+  }
+
+  .hero::after {
+    width: 130px;
+    height: 120px;
+
+    right: 4%;
+    top: 9%;
+  }
+
+  .hero__blob {
+    width: 280px;
+    height: 250px;
+
+    left: -90px;
+    bottom: -75px;
+  }
+
+  .hero__circle {
+    width: 90px;
+    height: 80px;
+
+    left: 72%;
+    top: 27%;
+  }
+
+  .hero__tiny-square {
+    display: none;
+  }
+
+  .hero__role {
+    right: 1rem;
+    bottom: 2rem;
+  }
+
+  .hero__label--top {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .hero__label--side {
+    display: none;
+  }
+
+  .hero__wash {
+    width: 320px;
+    height: 320px;
+  }
 }

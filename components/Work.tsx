@@ -5,7 +5,7 @@ export default function Work() {
     <section id="work" className="work">
       <div className="work__eyebrow">
         <span>SELECTED WORK</span>
-        <span>06</span>
+        <span>03</span>
       </div>
 
       <div className="work__intro">

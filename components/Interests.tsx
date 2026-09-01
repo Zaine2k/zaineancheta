@@ -5,7 +5,6 @@ export default function Interests() {
     <section className="interests">
       <div className="interests__eyebrow">
         <span>INTERESTS / HOBBIES</span>
-        <span>1.1</span>
       </div>
 
       <div className="interests__intro">

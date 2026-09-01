@@ -1,7 +1,7 @@
 .awards {
   position: relative;
 
-  padding: 3rem 2rem 5rem;
+  padding: 3rem 2rem 7rem;
 
   background: var(--background);
 
@@ -82,63 +82,113 @@
 }
 
 /* =========================================
-   GRID
+   MAIN COMPOSITION
 ========================================= */
 
-.awards__grid {
+.awards__display {
+  position: relative;
+
+  min-height: 720px;
+
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    minmax(260px, 1fr)
+    minmax(360px, 0.9fr)
+    minmax(260px, 1fr);
 
-  gap: 1rem;
+  align-items: center;
+
+  gap: clamp(1rem, 2vw, 2.5rem);
+
+  padding:
+    clamp(2rem, 5vw, 4rem)
+    0;
+}
+
+/* long guide line */
+
+.awards__display::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 50%;
+
+  height: 1px;
+
+  background: var(--line);
+
+  z-index: 0;
 }
 
 /* =========================================
-   CARD
+   AWARD TEXT BLOCKS
 ========================================= */
 
-.award-card {
-  min-height: 430px;
+.award-panel {
+  position: relative;
 
-  padding: clamp(1.5rem, 3vw, 2.5rem);
+  min-width: 0;
+
+  z-index: 3;
 
   display: flex;
   flex-direction: column;
 
-  border-radius: 18px;
+  background: transparent;
 
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  padding: 0;
 }
 
-.award-card:hover {
-  transform: translateY(-5px);
-
-  box-shadow:
-    0 18px 40px rgba(28, 29, 24, 0.08);
+.award-panel--left {
+  padding-right: clamp(1rem, 3vw, 3.5rem);
 }
 
-.award-card__top {
+.award-panel--right {
+  padding-left: clamp(1rem, 3vw, 3.5rem);
+}
+
+/* =========================================
+   META
+========================================= */
+
+.award-panel__top {
   display: flex;
+
   justify-content: space-between;
+
+  gap: 1rem;
+
+  padding-bottom: 0.8rem;
+
+  border-bottom: 1px solid currentColor;
 
   font-family: var(--font-geist-mono), monospace;
 
   font-size: 0.52rem;
   font-weight: 600;
 
-  letter-spacing: 0.1em;
+  letter-spacing: 0.11em;
 
-  opacity: 0.6;
+  text-transform: uppercase;
+
+  opacity: 0.48;
 }
 
-.award-card__category {
+/* =========================================
+   CATEGORY
+========================================= */
+
+.award-panel__category {
   width: fit-content;
 
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 
-  padding: 0.4rem 0.65rem;
+  padding: 0.42rem 0.7rem;
 
   border-radius: 999px;
 
@@ -147,89 +197,409 @@
   font-size: 0.5rem;
   font-weight: 700;
 
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 
   text-transform: uppercase;
 }
 
-.award-card h3 {
-  margin: 1.25rem 0 0;
+/* =========================================
+   TITLE
+========================================= */
 
-  font-size: clamp(2.6rem, 5vw, 5rem);
+.award-panel h3 {
+  margin: 1.4rem 0 0;
 
-  line-height: 0.88;
+  font-size: clamp(2.8rem, 4vw, 5rem);
 
-  letter-spacing: -0.055em;
+  line-height: 0.84;
+
+  letter-spacing: -0.065em;
+
+  text-wrap: balance;
 }
 
-.award-card > p {
-  max-width: 520px;
+.award-panel p {
+  max-width: 400px;
 
   margin: 1.5rem 0 0;
 
-  font-size: 0.88rem;
+  font-size: 0.86rem;
 
-  line-height: 1.6;
+  line-height: 1.65;
 
-  opacity: 0.72;
+  opacity: 0.66;
 }
 
-.award-card__footer {
-  margin-top: auto;
+/* =========================================
+   FOOTER
+========================================= */
 
-  padding-top: 2rem;
+.award-panel__footer {
+  margin-top: 2.5rem;
+
+  padding-top: 1rem;
 
   border-top: 1px solid currentColor;
 
   font-family: var(--font-geist-mono), monospace;
 
-  font-size: 0.52rem;
+  font-size: 0.49rem;
   font-weight: 600;
 
-  letter-spacing: 0.1em;
+  letter-spacing: 0.11em;
 
-  opacity: 0.5;
+  text-transform: uppercase;
+
+  opacity: 0.42;
 }
 
 /* =========================================
-   DEAN'S LIST
+   LEFT AWARD
 ========================================= */
 
-.award-card--deans {
-  background: #ddd7f0;
-
-  color: #33294f;
-
-  border: 1px solid #c5badf;
+.award-panel--left {
+  color: #514179;
 }
 
-.award-card--deans .award-card__category {
-  background: rgba(103, 82, 166, 0.1);
+.award-panel--left .award-panel__category {
+  background: rgba(103, 82, 166, 0.08);
 
-  border: 1px solid rgba(103, 82, 166, 0.4);
+  border: 1px solid rgba(103, 82, 166, 0.32);
+}
+
+/* decorative number */
+
+.award-panel--left::before {
+  content: "01";
+
+  position: absolute;
+
+  top: -1.4rem;
+  right: 0;
+
+  font-family: var(--font-instrument-serif), serif;
+
+  font-style: italic;
+
+  font-size: clamp(7rem, 12vw, 12rem);
+
+  line-height: 1;
+
+  color: rgba(103, 82, 166, 0.055);
+
+  pointer-events: none;
+
+  z-index: -1;
 }
 
 /* =========================================
-   DSMLC
+   RIGHT AWARD
 ========================================= */
 
-.award-card--dsmlc {
+.award-panel--right {
+  color: #713d22;
+}
+
+.award-panel--right .award-panel__category {
+  background: rgba(238, 137, 82, 0.1);
+
+  border: 1px solid rgba(113, 61, 34, 0.28);
+}
+
+/* decorative number */
+
+.award-panel--right::before {
+  content: "02";
+
+  position: absolute;
+
+  top: -1.4rem;
+  left: 0;
+
+  font-family: var(--font-instrument-serif), serif;
+
+  font-style: italic;
+
+  font-size: clamp(7rem, 12vw, 12rem);
+
+  line-height: 1;
+
+  color: rgba(220, 115, 65, 0.06);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+/* =========================================
+   CENTER
+========================================= */
+
+.awards__center {
+  position: relative;
+
+  z-index: 4;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+}
+
+/* =========================================
+   CIRCLE WINDOW
+========================================= */
+
+.awards__center::before {
+  content: "";
+
+  position: absolute;
+
+  width: 112%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
   background:
-    linear-gradient(
-      145deg,
-      #ee945d 0%,
-      #dc7341 100%
+    radial-gradient(
+      circle at 35% 30%,
+      #f3a16f 0%,
+      #e88751 45%,
+      #d66d3e 100%
     );
 
-  color: #241d19;
+  box-shadow:
+    0 35px 70px rgba(74, 45, 24, 0.12);
 
-  border: 1px solid #cf693a;
+  z-index: -2;
 }
 
-.award-card--dsmlc .award-card__category {
-  background: rgba(255, 255, 255, 0.14);
+/* outer orbital ring */
 
-  border: 1px solid rgba(36, 29, 25, 0.35);
+.awards__center::after {
+  content: "";
+
+  position: absolute;
+
+  width: 124%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(28, 29, 24, 0.12);
+
+  z-index: -3;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   TROPHY WINDOW
+========================================= */
+
+.awards__trophy {
+  position: relative;
+
+  width: min(34vw, 520px);
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  z-index: 2;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #f1a16f 0%,
+      #e98752 48%,
+      #d96f40 100%
+    );
+
+  border: 1px solid rgba(28, 29, 24, 0.12);
+
+  box-shadow:
+    inset 0 0 0 10px rgba(255, 255, 255, 0.08),
+    0 30px 70px rgba(28, 29, 24, 0.14);
+}
+
+/* small highlight ring */
+
+.awards__trophy::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 14px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+/* =========================================
+   TROPHY SCENE
+========================================= */
+
+.awards__trophy-scene {
+  width: 100%;
+  height: 100%;
+}
+
+.awards__trophy-scene canvas {
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* =========================================
+   CENTER META
+========================================= */
+
+.awards__center-meta {
+  position: absolute;
+
+  top: -2.6rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.48rem;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  opacity: 0.44;
+}
+
+.awards__center-caption {
+  position: absolute;
+
+  bottom: -2.6rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.48rem;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  opacity: 0.4;
+}
+
+/* =========================================
+   CONNECTOR LINES
+========================================= */
+
+.award-panel--left::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: -3rem;
+
+  width: 3rem;
+  height: 1px;
+
+  background: currentColor;
+
+  opacity: 0.25;
+}
+
+.award-panel--right::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: -3rem;
+
+  width: 3rem;
+  height: 1px;
+
+  background: currentColor;
+
+  opacity: 0.25;
+}
+
+/* =========================================
+   HOVER
+========================================= */
+
+.awards__trophy {
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s ease;
+}
+
+.awards__center:hover .awards__trophy {
+  transform: scale(1.035);
+
+  box-shadow:
+    inset 0 0 0 10px rgba(255, 255, 255, 0.1),
+    0 40px 90px rgba(28, 29, 24, 0.18);
+}
+
+.award-panel {
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.award-panel--left:hover {
+  transform: translateX(8px);
+}
+
+.award-panel--right:hover {
+  transform: translateX(-8px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .awards__display {
+    grid-template-columns:
+      minmax(220px, 0.9fr)
+      minmax(300px, 1fr)
+      minmax(220px, 0.9fr);
+  }
+
+  .awards__trophy {
+    width: min(36vw, 430px);
+  }
+
+  .award-panel h3 {
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+  }
 }
 
 /* =========================================
@@ -238,7 +608,7 @@
 
 @media (max-width: 768px) {
   .awards {
-    padding: 2rem 1.25rem 3rem;
+    padding: 2rem 1.25rem 4rem;
   }
 
   .awards__intro {
@@ -253,19 +623,70 @@
     font-size: clamp(3.5rem, 15vw, 6rem);
   }
 
-  .awards__grid {
-    grid-template-columns: 1fr;
+  .awards__display {
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 0;
+
+    gap: 4rem;
+
+    padding: 2rem 0;
   }
 
-  .award-card {
-    min-height: 360px;
-
-    padding: 1.5rem;
-
-    border-radius: 14px;
+  .awards__display::before {
+    display: none;
   }
 
-  .award-card h3 {
-    font-size: clamp(2.5rem, 11vw, 4rem);
+  .award-panel--left,
+  .award-panel--right {
+    width: 100%;
+
+    padding: 0;
+  }
+
+  .award-panel--left::after,
+  .award-panel--right::after {
+    display: none;
+  }
+
+  .award-panel--left:hover,
+  .award-panel--right:hover {
+    transform: none;
+  }
+
+  .award-panel h3 {
+    font-size: clamp(3rem, 12vw, 4.5rem);
+  }
+
+  .awards__center {
+    width: 100%;
+
+    min-height: 430px;
+  }
+
+  .awards__trophy {
+    width: min(90vw, 430px);
+  }
+
+  .awards__center::before {
+    width: min(96vw, 460px);
+  }
+
+  .awards__center::after {
+    width: min(102vw, 490px);
+  }
+
+  .awards__center-meta {
+    top: -1.8rem;
+
+    width: 86%;
+  }
+
+  .awards__center-caption {
+    bottom: -1.8rem;
+
+    width: 86%;
   }
 }

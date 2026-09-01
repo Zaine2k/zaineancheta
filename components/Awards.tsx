@@ -1,4 +1,5 @@
 import "./Awards.css";
+import AwardTrophyScene from "./three/AwardScene";
 
 export default function Awards() {
   return (
@@ -16,63 +17,89 @@ export default function Awards() {
         </h2>
 
         <p>
-          Awards, academic recognition and competition results from my work across
-          computer science and data science.
+          Awards, academic recognition and competition results from my work
+          across computer science and data science.
         </p>
       </div>
 
-      <div className="awards__grid">
-        {/* DEAN'S LIST */}
-        <article className="award-card award-card--deans">
-          <div className="award-card__top">
+      <div className="awards__display">
+        {/* =====================================
+            AWARD 01
+        ====================================== */}
+
+        <article className="award-panel award-panel--left">
+          <div className="award-panel__top">
             <span>01</span>
             <span>2025 — 2026</span>
           </div>
 
-          <span className="award-card__category">
+          <span className="award-panel__category">
             ACADEMIC
           </span>
 
           <h3>
-            FACULTY OF SCIENCE
+            FACULTY OF
             <br />
-            DEAN&apos;S LIST 2025/2026
+            SCIENCE
           </h3>
 
           <p>
-            Recognized by the University of Calgary Faculty of Science for
-            outstanding academic achievement. 
+            Named to the University of Calgary Faculty of Science Dean&apos;s
+            List for outstanding academic achievement.
           </p>
 
-          <div className="award-card__footer">
+          <div className="award-panel__footer">
             UNIVERSITY OF CALGARY
           </div>
         </article>
 
-        {/* DSMLC WIN */}
-        <article className="award-card award-card--dsmlc">
-          <div className="award-card__top">
+        {/* =====================================
+            CENTER TROPHY
+        ====================================== */}
+
+        <div className="awards__center">
+          <div className="awards__center-meta">
+            <span>RECOGNITION</span>
+            <span>HONORS</span>
+          </div>
+
+          <div className="awards__trophy">
+            <AwardTrophyScene />
+          </div>
+
+          <div className="awards__center-caption">
+            <span>SELECTED</span>
+            <span>AWARDS</span>
+          </div>
+        </div>
+
+        {/* =====================================
+            AWARD 02
+        ====================================== */}
+
+        <article className="award-panel award-panel--right">
+          <div className="award-panel__top">
             <span>02</span>
             <span>MAR 2025</span>
           </div>
 
-          <span className="award-card__category">
+          <span className="award-panel__category">
             1ST PLACE
           </span>
 
           <h3>
             DSMLC FINAL
             <br />
-            COMPETITION 2025
+            COMPETITION
           </h3>
 
           <p>
             Analyzed Canadian small-business loan and claims data using Python,
             R, and Power BI, then presented the findings to industry
-            professionals, and students.
+            professionals and students.
           </p>
 
-          <div className="award-card__footer">
+          <div className="award-panel__footer">
             DATA SCIENCE &amp; MACHINE LEARNING CLUB
           </div>
         </article>

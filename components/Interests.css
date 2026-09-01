@@ -1,0 +1,846 @@
+.interests {
+  position: relative;
+
+  padding: 1rem 2rem 5rem;
+
+  background: var(--cream);
+
+  overflow: hidden;
+}
+
+.interests::before {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  left: -150px;
+  bottom: -150px;
+
+  border-radius:
+    43% 57% 35% 65%
+    /
+    53% 38% 62% 47%;
+
+  background: var(--plum);
+
+  opacity: 0.08;
+
+  transform: rotate(-18deg);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.interests__eyebrow {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 1rem;
+  margin-bottom: clamp(3rem, 6vw, 6rem);
+
+  border-bottom: 1px solid var(--line);
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.interests__intro {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(260px, 0.5fr);
+
+  gap: 4rem;
+
+  align-items: end;
+
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.interests__intro h2 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  line-height: 0.85;
+
+  font-weight: 800;
+  letter-spacing: -0.07em;
+}
+
+.interests__intro h2 em {
+  font-family: var(--font-instrument-serif), serif;
+
+  font-style: italic;
+  font-weight: 400;
+
+  color: var(--plum);
+}
+
+.interests__intro p {
+  margin: 0;
+
+  max-width: 430px;
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+
+  color: rgba(28, 29, 24, 0.66);
+}
+
+
+/* =========================================
+   MAIN GRID
+========================================= */
+
+.interests__grid {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 0.7fr)
+    minmax(0, 1.3fr);
+
+  gap: 1rem;
+
+  align-items: stretch;
+}
+
+.interests__panel {
+  min-width: 0;
+
+  padding: 1.4rem;
+
+  border: 1px solid rgba(28, 29, 24, 0.12);
+  border-radius: 16px;
+}
+
+.interests__panel--hobbies {
+  background: #e6dfef;
+}
+
+.interests__panel--books {
+  background: #e9d9ca;
+}
+
+.interests__label {
+  margin-bottom: 1.25rem;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.58rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: rgba(28, 29, 24, 0.48);
+}
+
+
+/* =========================================
+   INTEREST TAGS
+========================================= */
+
+.interests__tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+}
+
+.interests__tag {
+  display: flex;
+  align-items: center;
+
+  gap: 0.55rem;
+
+  padding: 0.6rem 0.8rem;
+
+  border: 1px solid rgba(28, 29, 24, 0.14);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.interests__tag:hover {
+  transform: translateY(-2px) rotate(-1deg);
+
+  background: rgba(255, 255, 255, 0.52);
+
+  border-color: rgba(28, 29, 24, 0.3);
+}
+
+.interests__tag:nth-child(even):hover {
+  transform: translateY(-2px) rotate(1deg);
+}
+
+.interests__tag span {
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.42rem;
+
+  opacity: 0.32;
+}
+
+.interests__tag strong {
+  font-size: 0.67rem;
+  font-weight: 650;
+
+  letter-spacing: 0.04em;
+}
+
+.interests__note {
+  margin: 2rem 0 0;
+
+  max-width: 390px;
+
+  font-size: 0.76rem;
+  line-height: 1.55;
+
+  color: rgba(28, 29, 24, 0.58);
+}
+
+
+/* =========================================
+   BOOKS HEADER
+========================================= */
+
+.interests__books-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 2rem;
+
+  margin-bottom: 1.4rem;
+}
+
+.interests__books-header h3 {
+  margin: 0;
+
+  font-size: clamp(1.5rem, 2.4vw, 2.5rem);
+  line-height: 0.9;
+
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.interests__books-header p {
+  margin: 0;
+
+  max-width: 220px;
+
+  font-size: 0.68rem;
+  line-height: 1.45;
+
+  color: rgba(28, 29, 24, 0.52);
+}
+
+
+/* =========================================
+   BOOKSHELF
+========================================= */
+
+.bookshelf {
+  position: relative;
+
+  padding: 1.5rem 1rem 1rem;
+
+  border: 1px solid rgba(28, 29, 24, 0.12);
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.24),
+      rgba(255, 255, 255, 0.08)
+    );
+
+  overflow: hidden;
+}
+
+.bookshelf__row {
+  position: relative;
+  z-index: 2;
+
+  min-height: 220px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  gap: 0.35rem;
+
+  padding: 0 0.45rem;
+}
+
+
+/* =========================================
+   BOOK SPINES
+========================================= */
+
+.book {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 0.65rem 0.4rem;
+
+  border: 1px solid rgba(28, 29, 24, 0.2);
+  border-radius: 3px 3px 1px 1px;
+
+  box-shadow:
+    2px 2px 0 rgba(28, 29, 24, 0.08),
+    inset 1px 0 0 rgba(255, 255, 255, 0.25);
+
+  transform-origin: bottom center;
+
+  cursor: default;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.book:hover {
+  transform: translateY(-8px) rotate(-1deg);
+
+  box-shadow:
+    4px 9px 15px rgba(28, 29, 24, 0.14),
+    inset 1px 0 0 rgba(255, 255, 255, 0.32);
+
+  filter: saturate(1.08);
+}
+
+.book:nth-child(even):hover {
+  transform: translateY(-8px) rotate(1deg);
+}
+
+
+/* =========================================
+   INDIVIDUAL BOOKS
+========================================= */
+
+.book--one {
+  /* 2666 — Roberto Bolaño */
+  width: 80px;
+  height: 195px;
+
+  background: #5a443a;
+  color: #d94a3a;
+
+  border-top: 7px solid #d94a3a;
+}
+
+.book--two {
+  /* V. — Thomas Pynchon */
+  width: 64px;
+  height: 192px;
+
+  background: #d7da55;
+  color: #111111;
+
+  border-top: 6px solid #378dde;
+}
+
+.book--three {
+  /* The Master and Margarita — Mikhail Bulgakov */
+  width: 60px;
+  height: 210px;
+
+  background: #d93d32;
+  color: #f6e8cf;
+
+  border-top: 7px solid #1c1917;
+}
+
+.book--four {
+  /* Solaris — Stanisław Lem */
+  width: 40px;
+  height: 195px;
+
+  background: #142b45;
+  color: #efe6cf;
+
+  border-top: 6px solid #d7a53b;
+}
+
+.book--five {
+  /* By Night in Chile — Roberto Bolaño */
+  width: 30px;
+  height: 188px;
+
+  background: #ffb5da;
+  color: #171918;
+
+  border-top: 7px solid #ffb5da;
+}
+
+.book--six {
+  /* Libra — Don DeLillo */
+
+  width: 54px;
+  height: 205px;
+
+  background: #dfd548;
+  color: #111111;
+
+  border-top: 7px solid #ebe4e4;
+}
+
+.book--seven {
+  /* A Short Stay in Hell — Steven L. Peck */
+
+  width: 20px;
+  height: 178px;
+
+  background: #f3edb6;
+  color: #f07d12;
+
+  border-top: 6px solid #a33b36;
+}
+
+.book--eight {
+  /* Stoner — John Williams */
+
+  width: 40px;
+  height: 198px;
+
+  background: #3f463c;
+  color: #eee9e5;
+
+  border-top: 7px solid #596153;
+}
+
+.book--nine {
+  /* The Crying of Lot 49 — Thomas Pynchon */
+
+  width: 20px;
+  height: 185px;
+
+  background: #ddb940;
+  color: #1a1816;
+
+  border-top: 7px solid #dd6742;
+}
+
+.book--ten {
+  /* Moby-Dick — Herman Melville */
+
+  width: 72px;
+  height: 218px;
+
+  background: #27465f;
+  color: #eee8dc;
+
+  border-top: 7px solid #b8d5d3;
+}
+
+.book--eleven {
+  /* Fahrenheit 451 — Ray Bradbury */
+
+  width: 45px;
+  height: 192px;
+
+  background: #dc542f;
+  color: #f6e4bd;
+
+  border-top: 7px solid #25211e;
+}
+
+.book--twelve {
+  /* Dracula — Bram Stoker */
+
+  width: 40px;
+  height: 208px;
+
+  background: #171513;
+  color: #d9c9aa;
+
+  border-top: 7px solid #821e23;
+}
+
+.book--thirteen {
+  /* Blood Meridian — Cormac McCarthy */
+
+  width: 50px;
+  height: 214px;
+
+  background: #8e2821;
+  color: #eee1c6;
+
+  border-top: 7px solid #171615;
+}
+
+.book--fourteen {
+  /* Norwegian Wood — Haruki Murakami */
+
+  width: 48px;
+  height: 190px;
+
+  background: #d9b6ad;
+  color: #29231f;
+
+  border-top: 7px solid #9b3348;
+}
+
+.book--fifteen {
+  /* Life of Pi — Yann Martel */
+
+  width: 48px;
+  height: 198px;
+
+  background: #f0a24a;
+  color: #19344c;
+
+  border-top: 7px solid #2d73a7;
+}
+
+.book--sixteen {
+  /* The Stranger — Albert Camus */
+
+  width: 34px;
+  height: 184px;
+
+  background: #e8e0cf;
+  color: #151515;
+
+  border-top: 6px solid #1d1d1d;
+}
+
+.book--seventeen {
+  /* The Odyssey — Homer */
+
+  width: 58px;
+  height: 214px;
+
+  background: #28436a;
+  color: #f0d9a8;
+
+  border-top: 7px solid #c18c39;
+}
+
+.book--eighteen {
+  /* No Longer Human — Osamu Dazai */
+
+  width: 36px;
+  height: 192px;
+
+  background: #22201f;
+  color: #eee5d7;
+
+  border-top: 7px solid #9d2f31;
+}
+
+.book--nineteen {
+  /* Noli Me Tangere — José Rizal */
+
+  width: 40px;
+  height: 206px;
+
+  background: #5f432c;
+  color: #ead9b8;
+
+  border-top: 7px solid #9d2727;
+}
+
+.book--twenty {
+  /* The Count of Monte Cristo — Alexandre Dumas */
+
+  width: 74px;
+  height: 220px;
+
+  background: #182c40;
+  color: #e6d6b6;
+
+  border-top: 7px solid #b69148;
+}
+
+.book--twenty-one {
+  /* 1984 — George Orwell */
+
+  width: 30px;
+  height: 188px;
+
+  background: #b3322d;
+  color: #f0e6d7;
+
+  border-top: 7px solid #161616;
+}
+
+/* =========================================
+   BOOK TEXT
+========================================= */
+
+.book__title {
+  writing-mode: vertical-rl;
+
+  transform: rotate(180deg);
+
+  align-self: center;
+
+  max-height: 145px;
+
+  overflow: hidden;
+
+  font-family: var(--font-geist-sans), sans-serif;
+
+  font-size: 0.62rem;
+  font-weight: 750;
+
+  line-height: 1;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.book--three .book__title {
+  font-size: 0.54rem;
+}
+
+.book__author {
+  writing-mode: vertical-rl;
+
+  transform: rotate(180deg);
+
+  align-self: center;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.38rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  opacity: 0.68;
+}
+
+
+/* =========================================
+   WOOD SHELF
+========================================= */
+
+.bookshelf__shelf {
+  position: relative;
+  z-index: 3;
+
+  height: 17px;
+
+  margin-top: -1px;
+
+  border-radius: 2px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #a26d45 0%,
+      #865633 55%,
+      #70452a 100%
+    );
+
+  box-shadow:
+    0 6px 10px rgba(28, 29, 24, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.bookshelf__shelf::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 3px 0 auto;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.bookshelf__shelf::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -5px;
+
+  height: 5px;
+
+  border-radius: 0 0 3px 3px;
+
+  background: #5d3922;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .interests__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interests__panel--hobbies,
+  .interests__panel--books {
+    min-height: auto;
+  }
+
+  .bookshelf__row {
+    justify-content: center;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .interests {
+    padding: 1rem 1.25rem 3rem;
+  }
+
+  .interests__eyebrow {
+    margin-bottom: 3rem;
+  }
+
+  .interests__intro {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+
+    margin-bottom: 2.5rem;
+  }
+
+  .interests__intro h2 {
+    font-size: clamp(3.2rem, 14vw, 5rem);
+  }
+
+  .interests__panel {
+    padding: 1rem;
+
+    border-radius: 14px;
+  }
+
+  .interests__books-header {
+    display: block;
+  }
+
+  .interests__books-header p {
+    margin-top: 0.7rem;
+  }
+
+  .bookshelf {
+    padding: 1.2rem 0.7rem 0.8rem;
+  }
+
+  .bookshelf__row {
+    min-height: 185px;
+
+    justify-content: center;
+
+    gap: 0.22rem;
+
+    padding: 0 0.15rem;
+  }
+
+  .book--one {
+    width: 44px;
+    height: 135px;
+  }
+
+  .book--two {
+    width: 42px;
+    height: 160px;
+  }
+
+  .book--three {
+    width: 54px;
+    height: 178px;
+  }
+
+  .book--four {
+    width: 42px;
+    height: 148px;
+  }
+
+  .book--five {
+    width: 50px;
+    height: 166px;
+  }
+
+  .book__title {
+    font-size: 0.52rem;
+  }
+
+  .book--three .book__title {
+    font-size: 0.45rem;
+  }
+
+  .book__author {
+    font-size: 0.32rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .interests__tags {
+    gap: 0.4rem;
+  }
+
+  .interests__tag {
+    padding: 0.5rem 0.65rem;
+  }
+
+  .interests__tag strong {
+    font-size: 0.6rem;
+  }
+
+  .bookshelf__row {
+    overflow-x: auto;
+    justify-content: flex-start;
+
+    scrollbar-width: none;
+  }
+
+  .bookshelf__row::-webkit-scrollbar {
+    display: none;
+  }
+}

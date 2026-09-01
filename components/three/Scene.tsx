@@ -8,6 +8,7 @@ import PlantModel2 from "./models/PlantModel2";
 import GuitarAmp from "./models/GuitarAmp";
 import CeilingLight from "./models/CeilingLight";
 import SmallTable from "./models/SmallTable";
+import Chandelier from "./models/Chandelier";
 import Room from "./models/Room";
 
 export default function Scene() {
@@ -45,6 +46,14 @@ export default function Scene() {
       <PlantModel2 />
       <GuitarAmp />
       <CeilingLight />
+
+      {/* CHANDELIER */}
+      <group
+        position={[0, 2.8, -0.5]}
+        scale={1}
+      >
+        <Chandelier />
+      </group>
 
       {/* SMALL TABLE - RIGHT CORNER */}
       <group

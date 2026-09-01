@@ -8,7 +8,7 @@ export default function PlantModel() {
   return (
     <primitive
       object={scene}
-      position={[-5.15, -1.72, -0.35]}
+      position={[-5.15, -0.7, -1.85]}
       scale={1.5}
       rotation={[0, 0.25, 0]}
     />

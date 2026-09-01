@@ -1,0 +1,417 @@
+.work {
+  position: relative;
+
+  padding: 3rem 2rem 5rem;
+
+  background: var(--cream);
+
+  overflow: hidden;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.work__eyebrow {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 0.8rem;
+
+  border-bottom: 1px solid var(--line);
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.work__intro {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.8fr)
+    minmax(260px, 0.7fr);
+
+  gap: 4rem;
+
+  align-items: end;
+
+  margin: clamp(4rem, 8vw, 7rem) 0;
+}
+
+.work__intro h2 {
+  margin: 0;
+
+  font-size: clamp(4rem, 8vw, 8rem);
+
+  line-height: 0.82;
+
+  letter-spacing: -0.07em;
+
+  font-weight: 800;
+}
+
+.work__intro h2 em {
+  font-family: var(--font-instrument-serif), serif;
+
+  font-style: italic;
+  font-weight: 400;
+
+  color: var(--clay);
+}
+
+.work__intro p {
+  max-width: 420px;
+
+  margin: 0;
+
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+
+  line-height: 1.6;
+
+  color: rgba(28, 29, 24, 0.7);
+}
+
+/* =========================================
+   PINTEREST-STYLE GRID
+   FILLS LEFT → RIGHT FIRST
+========================================= */
+
+.work__grid {
+  width: 100%;
+
+  margin: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  align-items: start;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.work-card {
+  position: relative;
+
+  width: 100%;
+
+  padding: clamp(1.4rem, 2vw, 2rem);
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 18px 40px rgba(28, 29, 24, 0.1);
+}
+
+/* =========================================
+   VARIED CARD HEIGHTS
+========================================= */
+
+.work-card--oil {
+  min-height: 620px;
+}
+
+.work-card--housing {
+  min-height: 440px;
+}
+
+.work-card--resynth {
+  min-height: 520px;
+}
+
+/* =========================================
+   CARD TOP
+========================================= */
+
+.work-card__top {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.52rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  opacity: 0.65;
+}
+
+.work-card__number {
+  flex-shrink: 0;
+}
+
+.work-card__type {
+  text-align: right;
+}
+
+/* =========================================
+   TITLES
+========================================= */
+
+.work-card h3 {
+  margin: 2.5rem 0 0;
+
+  font-size: clamp(2rem, 3vw, 3.4rem);
+
+  line-height: 0.9;
+
+  letter-spacing: -0.05em;
+
+  font-weight: 700;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.work-card__description {
+  max-width: 100%;
+
+  margin: 1.2rem 0 0;
+
+  font-size: 0.86rem;
+
+  line-height: 1.6;
+
+  opacity: 0.76;
+}
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.work-card__details {
+  margin-top: auto;
+
+  padding-top: 2.5rem;
+}
+
+.work-card__label {
+  display: block;
+
+  margin-bottom: 0.5rem;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.48rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  opacity: 0.5;
+}
+
+.work-card__details p {
+  margin: 0;
+
+  font-size: 0.75rem;
+
+  line-height: 1.55;
+
+  opacity: 0.7;
+}
+
+/* =========================================
+   TAGS
+========================================= */
+
+.work-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.35rem;
+
+  margin-top: 1.5rem;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid rgba(28, 29, 24, 0.15);
+}
+
+.work-card__tags span {
+  padding: 0.32rem 0.5rem;
+
+  border: 1px solid rgba(28, 29, 24, 0.25);
+
+  border-radius: 999px;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.48rem;
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+}
+
+/* =========================================
+   OIL PROJECT
+========================================= */
+
+.work-card--oil {
+  background:
+    linear-gradient(
+      145deg,
+      #dad0b6 0%,
+      #c8bb98 100%
+    );
+
+  color: #26241d;
+
+  border: 1px solid #b7aa87;
+}
+
+/* =========================================
+   HOUSING
+========================================= */
+
+.work-card--housing {
+  background: #dce7d3;
+
+  color: #1d2c23;
+
+  border: 1px solid #c1d2b8;
+}
+
+/* =========================================
+   RESYNTH
+========================================= */
+
+.work-card--resynth {
+  background:
+    linear-gradient(
+      145deg,
+      #61519a 0%,
+      #493a7c 100%
+    );
+
+  color: #f8f5ff;
+
+  border: 1px solid #40346b;
+}
+
+.work-card--resynth .work-card__tags {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.work-card--resynth .work-card__tags span {
+  border-color: rgba(255, 255, 255, 0.3);
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================
+   OPTIONAL EXTRA CARD SIZES
+========================================= */
+
+.work-card--small {
+  min-height: 320px;
+}
+
+.work-card--medium {
+  min-height: 460px;
+}
+
+.work-card--tall {
+  min-height: 620px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .work {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .work__intro {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    margin: 4rem 0 3rem;
+  }
+
+  .work__intro h2 {
+    font-size: clamp(3.5rem, 15vw, 6rem);
+  }
+
+  .work__grid {
+    grid-template-columns: 1fr;
+
+    gap: 0.8rem;
+  }
+
+  .work-card {
+    min-height: auto;
+
+    padding: 1.5rem;
+
+    border-radius: 14px;
+  }
+
+  .work-card--oil,
+  .work-card--housing,
+  .work-card--resynth,
+  .work-card--small,
+  .work-card--medium,
+  .work-card--tall {
+    min-height: auto;
+  }
+
+  .work-card h3 {
+    margin-top: 2rem;
+
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .work-card__details {
+    margin-top: 2.5rem;
+  }
+}

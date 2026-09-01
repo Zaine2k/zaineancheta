@@ -1,20 +1,27 @@
 .about {
   position: relative;
+
   min-height: 100vh;
+
   padding: 3rem 2rem 4rem;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   background: var(--cream);
+
   overflow: hidden;
 }
+
+/* =========================================
+   BACKGROUND DETAIL
+========================================= */
 
 .about::before {
   content: "";
 
   position: absolute;
+
   width: 420px;
   height: 420px;
 
@@ -27,13 +34,21 @@
     46% 62% 38% 54%;
 
   background: var(--sage);
+
   opacity: 0.18;
 
   transform: rotate(18deg);
+
+  pointer-events: none;
 }
+
+/* =========================================
+   EYEBROW
+========================================= */
 
 .about__eyebrow {
   position: relative;
+
   z-index: 1;
 
   display: flex;
@@ -41,23 +56,37 @@
 
   padding-bottom: 1rem;
 
+  margin-bottom: clamp(4rem, 8vw, 8rem);
+
   border-bottom: 1px solid var(--line);
 
   font-family: var(--font-geist-mono), monospace;
+
   font-size: 0.72rem;
+  font-weight: 600;
 
   letter-spacing: 0.14em;
+
   text-transform: uppercase;
 }
 
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
 .about__content {
   position: relative;
+
   z-index: 1;
 
   display: grid;
-  grid-template-columns: minmax(0, 2.3fr) minmax(260px, 0.7fr);
+
+  grid-template-columns:
+    minmax(0, 2.3fr)
+    minmax(260px, 0.7fr);
 
   gap: 4rem;
+
   align-items: end;
 }
 
@@ -65,9 +94,11 @@
   margin: 0;
 
   font-size: clamp(4rem, 9vw, 10rem);
+
   line-height: 0.82;
 
   letter-spacing: -0.075em;
+
   font-weight: 800;
 }
 
@@ -75,57 +106,282 @@
   font-family: var(--font-instrument-serif), serif;
 
   font-style: italic;
+
   font-weight: 400;
 
   color: var(--forest);
 }
 
-.about__content p {
+.about__content > p {
   margin: 0;
 
   max-width: 430px;
 
   font-size: clamp(1rem, 1.4vw, 1.25rem);
+
   line-height: 1.55;
 
   color: rgba(28, 29, 24, 0.72);
 }
 
-.about__meta {
+/* =========================================
+   EDUCATION + SKILLS WRAPPER
+========================================= */
+
+.about__details {
   position: relative;
+
   z-index: 1;
 
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
 
-  gap: 0.6rem;
+  grid-template-columns:
+    minmax(280px, 0.7fr)
+    minmax(0, 1.3fr);
 
-  padding-top: 2rem;
+  gap: 1rem;
 
-  border-top: 1px solid var(--line);
+  margin-top: clamp(4rem, 7vw, 7rem);
+
+  align-items: stretch;
 }
 
-.about__meta span {
-  padding: 0.55rem 0.8rem;
+/* =========================================
+   EDUCATION
+========================================= */
 
-  border: 1px solid rgba(28, 29, 24, 0.45);
-  border-radius: 999px;
+.about__education {
+  position: relative;
 
-  background: rgba(158, 174, 147, 0.16);
+  margin: 0;
+
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  background: #eee2cf;
+
+  border: 1px solid rgba(28, 29, 24, 0.12);
+
+  border-radius: 16px;
+}
+
+.about__education-label {
+  margin-bottom: 1.5rem;
 
   font-family: var(--font-geist-mono), monospace;
 
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: rgba(28, 29, 24, 0.5);
 }
+
+.about__education-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+}
+
+.about__education-content h3 {
+  margin: 0 0 0.5rem;
+
+  max-width: 300px;
+
+  font-family: var(--font-geist-sans), sans-serif;
+
+  font-size: clamp(1.5rem, 2.1vw, 2.15rem);
+
+  line-height: 0.95;
+
+  font-weight: 700;
+
+  letter-spacing: -0.04em;
+
+  color: var(--foreground);
+}
+
+.about__education-content p {
+  margin: 0;
+
+  font-size: 0.88rem;
+
+  line-height: 1.55;
+
+  color: rgba(28, 29, 24, 0.68);
+}
+
+.about__education-year {
+  margin-top: auto;
+
+  padding-top: 2rem;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.62rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+
+  white-space: nowrap;
+
+  color: rgba(28, 29, 24, 0.52);
+}
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.about__skills {
+  position: relative;
+
+  margin: 0;
+
+  padding: 1.5rem;
+
+  min-width: 0;
+
+  background: #dfe7d5;
+
+  border: 1px solid rgba(28, 29, 24, 0.12);
+
+  border-radius: 16px;
+}
+
+.about__skills-label {
+  margin-bottom: 1.5rem;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: rgba(28, 29, 24, 0.5);
+}
+
+.about__skills-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1.2rem 2rem;
+}
+
+.about__skills-group {
+  min-width: 0;
+}
+
+.about__skills-category {
+  display: block;
+
+  margin-bottom: 0.6rem;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.52rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: rgba(28, 29, 24, 0.48);
+}
+
+.about__skills-items {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.4rem;
+}
+
+.about__skills-items span {
+  padding: 0.38rem 0.6rem;
+
+  border: 1px solid rgba(28, 29, 24, 0.22);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.46);
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.56rem;
+  font-weight: 500;
+
+  letter-spacing: 0.025em;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.about__skills-items span:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255, 255, 255, 0.8);
+
+  border-color: rgba(28, 29, 24, 0.42);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .about__details {
+    grid-template-columns:
+      minmax(250px, 0.8fr)
+      minmax(0, 1.2fr);
+  }
+
+  .about__skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 768px) {
   .about {
-    padding: 2rem 1.25rem 3rem;
+    padding: 2rem 1.25rem 2.5rem;
+  }
+
+  .about::before {
+    width: 260px;
+    height: 260px;
+
+    right: -100px;
+    top: -80px;
+  }
+
+  .about__eyebrow {
+    margin-bottom: 4rem;
   }
 
   .about__content {
     grid-template-columns: 1fr;
+
     gap: 2rem;
   }
 
@@ -133,7 +389,36 @@
     font-size: clamp(3.5rem, 15vw, 6rem);
   }
 
-  .about__content p {
+  .about__content > p {
     max-width: 100%;
+  }
+
+  .about__details {
+    grid-template-columns: 1fr;
+
+    gap: 0.8rem;
+
+    margin-top: 3rem;
+  }
+
+  .about__education,
+  .about__skills {
+    padding: 1.2rem;
+
+    border-radius: 14px;
+  }
+
+  .about__education-year {
+    padding-top: 1rem;
+  }
+
+  .about__skills-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .about__skills-items span {
+    font-size: 0.54rem;
   }
 }

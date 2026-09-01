@@ -1,0 +1,271 @@
+.awards {
+  position: relative;
+
+  padding: 3rem 2rem 5rem;
+
+  background: var(--background);
+
+  overflow: hidden;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.awards__eyebrow {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 0.8rem;
+
+  border-bottom: 1px solid var(--line);
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.awards__intro {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.8fr)
+    minmax(260px, 0.7fr);
+
+  gap: 4rem;
+
+  align-items: end;
+
+  margin: clamp(4rem, 8vw, 7rem) 0;
+}
+
+.awards__intro h2 {
+  margin: 0;
+
+  font-size: clamp(4rem, 8vw, 8rem);
+
+  line-height: 0.82;
+
+  letter-spacing: -0.07em;
+
+  font-weight: 800;
+}
+
+.awards__intro h2 em {
+  font-family: var(--font-instrument-serif), serif;
+
+  font-style: italic;
+  font-weight: 400;
+
+  color: var(--forest);
+}
+
+.awards__intro p {
+  max-width: 420px;
+
+  margin: 0;
+
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+
+  line-height: 1.6;
+
+  color: rgba(28, 29, 24, 0.7);
+}
+
+/* =========================================
+   GRID
+========================================= */
+
+.awards__grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.award-card {
+  min-height: 430px;
+
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 18px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.award-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 18px 40px rgba(28, 29, 24, 0.08);
+}
+
+.award-card__top {
+  display: flex;
+  justify-content: space-between;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.52rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  opacity: 0.6;
+}
+
+.award-card__category {
+  width: fit-content;
+
+  margin-top: 2.5rem;
+
+  padding: 0.4rem 0.65rem;
+
+  border-radius: 999px;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.5rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.award-card h3 {
+  margin: 1.25rem 0 0;
+
+  font-size: clamp(2.6rem, 5vw, 5rem);
+
+  line-height: 0.88;
+
+  letter-spacing: -0.055em;
+}
+
+.award-card > p {
+  max-width: 520px;
+
+  margin: 1.5rem 0 0;
+
+  font-size: 0.88rem;
+
+  line-height: 1.6;
+
+  opacity: 0.72;
+}
+
+.award-card__footer {
+  margin-top: auto;
+
+  padding-top: 2rem;
+
+  border-top: 1px solid currentColor;
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.52rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  opacity: 0.5;
+}
+
+/* =========================================
+   DEAN'S LIST
+========================================= */
+
+.award-card--deans {
+  background: #ddd7f0;
+
+  color: #33294f;
+
+  border: 1px solid #c5badf;
+}
+
+.award-card--deans .award-card__category {
+  background: rgba(103, 82, 166, 0.1);
+
+  border: 1px solid rgba(103, 82, 166, 0.4);
+}
+
+/* =========================================
+   DSMLC
+========================================= */
+
+.award-card--dsmlc {
+  background:
+    linear-gradient(
+      145deg,
+      #ee945d 0%,
+      #dc7341 100%
+    );
+
+  color: #241d19;
+
+  border: 1px solid #cf693a;
+}
+
+.award-card--dsmlc .award-card__category {
+  background: rgba(255, 255, 255, 0.14);
+
+  border: 1px solid rgba(36, 29, 25, 0.35);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .awards {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .awards__intro {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    margin: 4rem 0 3rem;
+  }
+
+  .awards__intro h2 {
+    font-size: clamp(3.5rem, 15vw, 6rem);
+  }
+
+  .awards__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .award-card {
+    min-height: 360px;
+
+    padding: 1.5rem;
+
+    border-radius: 14px;
+  }
+
+  .award-card h3 {
+    font-size: clamp(2.5rem, 11vw, 4rem);
+  }
+}

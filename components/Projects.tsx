@@ -8,96 +8,135 @@ export default function Projects() {
         <span>02</span>
       </div>
 
-      <article className="project project--blank">
-        <p className="project__type">
-          AUDIO SOFTWARE / DSP / PRODUCT
-        </p>
-        <p className="project__type">
-          JUN 2026 - PRESENT
-        </p>
+      <div className="projects__stack">
+        {/* BLANK AUDIO */}
+        <article className="project project--blank">
+          <p className="project__type">
+            FOUNDER &amp; SOFTWARE DEVELOPER
+          </p>
 
-        <h2>blank audio</h2>
+          <p className="project__type">
+            AUG 2026 - PRESENT
+          </p>
 
-        <p className="project__description">
-          Building audio plugins, DSP tools, and creative software with a
-          focus on minimal interfaces and expressive sound design.
-        </p>
+          <h2>blank audio</h2>
 
-        <div className="project__meta">
-          <span>JUCE</span>
-          <span>HISE</span>
-          <span>C++</span>
-          <span>DSP</span>
-        </div>
+          <p className="project__description">
+            Building audio plugins, DSP tools, and creative software with a
+            focus on minimal interfaces and expressive sound design.
+          </p>
 
-        <a
-          href="https://blankaudio.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project__embed"
-        >
-          <img
-            src="/images/blankaudiothumb.png"
-            alt="Blank Audio website preview"
-          />
-
-          <div className="project__embed-info">
-            <span className="project__embed-domain">
-              blankaudio.dev
-            </span>
-
-            <span className="project__embed-title">
-              Visit Blank Audio ↗
-            </span>
+          <div className="project__meta">
+            <span>JUCE</span>
+            <span>HISE</span>
+            <span>C++</span>
+            <span>DSP</span>
           </div>
-        </a>
-      </article>
 
-      <article className="project project--depths">
-        <p className="project__type">
-          GAME DEVELOPMENT / MUSIC 
-        </p>
-        <p className="project__type">
-          JUN 2025 - PRESENT
-        </p>
+          <a
+            href="https://blankaudio.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project__embed"
+          >
+            <img
+              src="/images/blankaudiothumb.png"
+              alt="Blank Audio website preview"
+            />
 
-        <h2>GLASS GECKO GAMES</h2>
+            <div className="project__embed-info">
+              <span className="project__embed-domain">
+                blankaudio.dev
+              </span>
 
-        <p className="project__description">
-          Associate Programmer &amp; Music Composer working on Scale the
-          Depths, contributing gameplay systems, audio implementation, and
-          original music.
-        </p>
+              <span className="project__embed-title">
+                Visit Blank Audio ↗
+              </span>
+            </div>
+          </a>
+        </article>
 
-        <div className="project__meta">
-          <span>UNITY</span>
-          <span>C#</span>
-          <span>MUSIC</span>
-          <span>AUDIO</span>
-        </div>
+        {/* GLASS GECKO GAMES */}
+        <article className="project project--depths">
+          <p className="project__type">
+            ASSOCIATE PROGRAMMER / MUSIC COMPOSER
+          </p>
 
-        <a
-          href="https://store.steampowered.com/app/3198890/Scale_the_Depths/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project__embed"
-        >
-          <img
-            src="/images/scalethedepthsthumb.png"
-            alt="Scale the Depths Steam preview"
-          />
+          <p className="project__type">
+            AUG 2025 - PRESENT
+          </p>
 
-          <div className="project__embed-info">
-            <span className="project__embed-domain">
-              SCALE THE DEPTHS
-            </span>
+          <h2>GLASS GECKO GAMES</h2>
 
-            <span className="project__embed-title">
-              View on Steam ↗
-            </span>
+          <p className="project__description">
+            Contributing to Scale the Depths through Unity development,
+            interactive audio implementation, debugging, and original
+            composition.
+          </p>
+
+          <div className="project__meta">
+            <span>UNITY</span>
+            <span>C#</span>
+            <span>AUDIO SYSTEMS</span>
+            <span>COMPOSITION</span>
           </div>
-        </a>
-      </article>
+
+          <a
+            href="https://store.steampowered.com/app/3198890/Scale_the_Depths/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project__embed"
+          >
+            <img
+              src="/images/scalethedepthsthumb.png"
+              alt="Scale the Depths Steam preview"
+            />
+
+            <div className="project__embed-info">
+              <span className="project__embed-domain">
+                SCALE THE DEPTHS
+              </span>
+
+              <span className="project__embed-title">
+                View on Steam ↗
+              </span>
+            </div>
+          </a>
+        </article>
+
+        {/* DATA SCIENCE & MACHINE LEARNING CLUB */}
+        <article className="project project--dsmlc">
+          <p className="project__type">
+            COMPETITION DIRECTOR
+          </p>
+
+          <p className="project__type">
+            APR 2025 - PRESENT
+          </p>
+
+          <h2>
+            DATA SCIENCE &amp;
+            <br />
+            MACHINE LEARNING CLUB
+          </h2>
+
+          <p className="project__description">
+            Leading the planning and execution of data science and machine
+            learning competitions at the University of Calgary, working with
+            industry partners to develop challenges, coordinate judging, and
+            create technical experiences for students.
+          </p>
+
+          <div className="project__meta">
+            <span>DATA SCIENCE</span>
+            <span>MACHINE LEARNING</span>
+            <span>PYTHON</span>
+            <span>POWER BI</span>
+            <span>LEADERSHIP</span>
+            <span>EVENT COORDINATION</span>
+          </div>
+        </article>
+      </div>
     </section>
   );
 }

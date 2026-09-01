@@ -3,23 +3,10 @@
 import * as THREE from "three";
 
 export default function Chandelier() {
-  const metal = new THREE.MeshStandardMaterial({
-    color: "#252525",
-    roughness: 0.38,
-    metalness: 0.78,
-  });
-
-  const socket = new THREE.MeshStandardMaterial({
-    color: "#3a342d",
-    roughness: 0.5,
-    metalness: 0.55,
-  });
-
-  const bulb = new THREE.MeshStandardMaterial({
-    color: "#fff4d8",
-    emissive: "#ffd78a",
-    emissiveIntensity: 2.2,
-    roughness: 0.18,
+  const stringMaterial = new THREE.MeshStandardMaterial({
+    color: "#2f2f2f",
+    roughness: 0.7,
+    metalness: 0.2,
   });
 
   const planetBlue = new THREE.MeshStandardMaterial({
@@ -51,97 +38,14 @@ export default function Chandelier() {
 
   return (
     <group>
-      {/* CEILING CAP */}
-      <mesh position={[0, 1.38, 0]} material={metal} castShadow>
-        <cylinderGeometry args={[0.18, 0.22, 0.08, 24]} />
-      </mesh>
-
-      {/* CEILING STEM */}
-      <mesh position={[0, 0.78, 0]} material={metal} castShadow>
-        <cylinderGeometry args={[0.025, 0.025, 1.15, 16]} />
-      </mesh>
-
-      {/* CENTER HUB */}
-      <mesh position={[0, 0.18, 0]} material={metal} castShadow>
-        <sphereGeometry args={[0.12, 20, 20]} />
-      </mesh>
-
-      {/* LEFT / RIGHT ARM */}
-      <mesh
-        position={[0, 0.18, 0]}
-        rotation={[0, 0, Math.PI / 2]}
-        material={metal}
-        castShadow
-      >
-        <cylinderGeometry args={[0.028, 0.028, 1.85, 16]} />
-      </mesh>
-
-      {/* FRONT / BACK ARM */}
-      <mesh
-        position={[0, 0.18, 0]}
-        rotation={[Math.PI / 2, 0, 0]}
-        material={metal}
-        castShadow
-      >
-        <cylinderGeometry args={[0.028, 0.028, 1.35, 16]} />
-      </mesh>
-
-      {/* SOCKETS */}
-      <mesh position={[-0.925, 0.18, 0]} material={socket} castShadow>
-        <cylinderGeometry args={[0.07, 0.07, 0.14, 16]} />
-      </mesh>
-
-      <mesh position={[0.925, 0.18, 0]} material={socket} castShadow>
-        <cylinderGeometry args={[0.07, 0.07, 0.14, 16]} />
-      </mesh>
-
-      <mesh
-        position={[0, 0.18, 0.675]}
-        rotation={[Math.PI / 2, 0, 0]}
-        material={socket}
-        castShadow
-      >
-        <cylinderGeometry args={[0.07, 0.07, 0.14, 16]} />
-      </mesh>
-
-      <mesh
-        position={[0, 0.18, -0.675]}
-        rotation={[Math.PI / 2, 0, 0]}
-        material={socket}
-        castShadow
-      >
-        <cylinderGeometry args={[0.07, 0.07, 0.14, 16]} />
-      </mesh>
-
-      {/* BULBS */}
-      <mesh position={[-1.02, 0.18, 0]} material={bulb}>
-        <sphereGeometry args={[0.105, 20, 20]} />
-      </mesh>
-
-      <mesh position={[1.02, 0.18, 0]} material={bulb}>
-        <sphereGeometry args={[0.105, 20, 20]} />
-      </mesh>
-
-      <mesh position={[0, 0.18, 0.77]} material={bulb}>
-        <sphereGeometry args={[0.105, 20, 20]} />
-      </mesh>
-
-      <mesh position={[0, 0.18, -0.77]} material={bulb}>
-        <sphereGeometry args={[0.105, 20, 20]} />
-      </mesh>
-
-      {/* =====================================
-          HANGING PLANETS
-      ===================================== */}
-
       {/* LEFT PLANET STRING */}
-      <mesh position={[-0.55, -0.28, 0]} material={metal}>
-        <cylinderGeometry args={[0.007, 0.007, 0.9, 8]} />
+      <mesh position={[-0.55, 0.15, 0]} material={stringMaterial}>
+        <cylinderGeometry args={[0.007, 0.007, 1.4, 8]} />
       </mesh>
 
       {/* LEFT PLANET */}
       <mesh
-        position={[-0.55, -0.75, 0]}
+        position={[-0.55, -0.6, 0]}
         material={planetBlue}
         castShadow
       >
@@ -149,13 +53,13 @@ export default function Chandelier() {
       </mesh>
 
       {/* RIGHT PLANET STRING */}
-      <mesh position={[0.6, -0.42, 0]} material={metal}>
-        <cylinderGeometry args={[0.007, 0.007, 1.15, 8]} />
+      <mesh position={[0.6, -0.05, 0]} material={stringMaterial}>
+        <cylinderGeometry args={[0.007, 0.007, 1.8, 8]} />
       </mesh>
 
       {/* RIGHT PLANET */}
       <mesh
-        position={[0.6, -1.02, 0]}
+        position={[0.6, -1.0, 0]}
         material={planetRust}
         castShadow
       >
@@ -163,13 +67,16 @@ export default function Chandelier() {
       </mesh>
 
       {/* FRONT PLANET STRING */}
-      <mesh position={[0, -0.18, 0.43]} material={metal}>
-        <cylinderGeometry args={[0.007, 0.007, 0.72, 8]} />
+      <mesh
+        position={[0, 0.3, 0.43]}
+        material={stringMaterial}
+      >
+        <cylinderGeometry args={[0.007, 0.007, 1.1, 8]} />
       </mesh>
 
       {/* FRONT PLANET */}
       <mesh
-        position={[0, -0.56, 0.43]}
+        position={[0, -0.3, 0.43]}
         material={planetGreen}
         castShadow
       >
@@ -177,8 +84,11 @@ export default function Chandelier() {
       </mesh>
 
       {/* SATURN STRING */}
-      <mesh position={[0.18, -0.55, -0.38]} material={metal}>
-        <cylinderGeometry args={[0.007, 0.007, 1.45, 8]} />
+      <mesh
+        position={[0.18, -0.2, -0.38]}
+        material={stringMaterial}
+      >
+        <cylinderGeometry args={[0.007, 0.007, 2.1, 8]} />
       </mesh>
 
       {/* SATURN */}
@@ -197,16 +107,6 @@ export default function Chandelier() {
           <torusGeometry args={[0.28, 0.025, 12, 40]} />
         </mesh>
       </group>
-
-      {/* WARM LIGHT */}
-      <pointLight
-        position={[0, 0, 0]}
-        intensity={4}
-        distance={6}
-        decay={2}
-        color="#ffd78a"
-        castShadow
-      />
     </group>
   );
 }

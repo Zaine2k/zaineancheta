@@ -49,7 +49,7 @@ export default function Scene() {
 
       {/* CHANDELIER */}
       <group
-        position={[0, 2.8, -0.5]}
+        position={[0, 3, -0.5]}
         scale={1}
       >
         <Chandelier />

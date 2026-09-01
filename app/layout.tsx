@@ -32,7 +32,7 @@ const pressStart = Press_Start_2P({
 
 export const metadata: Metadata = {
   title: "Zaine Ancheta",
-  description: "Creative developer portfolio",
+  description: "Third-Year CS + Data Science Student @ UCalgary",
 };
 
 export default function RootLayout({

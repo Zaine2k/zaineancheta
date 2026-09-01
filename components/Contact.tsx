@@ -5,7 +5,7 @@ export default function Contact() {
     <section id="contact" className="contact">
       <div className="contact__eyebrow">
         <span>CONTACT</span>
-        <span>03</span>
+        <span>05</span>
       </div>
 
       <div className="contact__content">

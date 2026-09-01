@@ -2,6 +2,8 @@
 
 import { Canvas } from "@react-three/fiber";
 import HeroSculpture from "./models/HeroSculpture";
+import PlantModel from "./models/PlantModel";
+import PlantModel2 from "./models/PlantModel2";
 
 export default function Scene() {
   return (
@@ -27,6 +29,9 @@ export default function Scene() {
         intensity={20}
         color="#ff79c8"
       />
+
+      <PlantModel />
+      <PlantModel2 />
 
       <HeroSculpture />
     </Canvas>

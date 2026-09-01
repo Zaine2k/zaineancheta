@@ -3,6 +3,7 @@ import {
   Geist,
   Geist_Mono,
   Instrument_Serif,
+  Press_Start_2P,
 } from "next/font/google";
 
 import "./globals.css";
@@ -23,6 +24,12 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
 });
 
+const pressStart = Press_Start_2P({
+  variable: "--font-pixel",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: "Zaine Ancheta",
   description: "Creative developer portfolio",
@@ -36,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${pressStart.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}

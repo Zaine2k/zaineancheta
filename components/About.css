@@ -1,0 +1,139 @@
+.about {
+  position: relative;
+  min-height: 100vh;
+  padding: 3rem 2rem 4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.about::before {
+  content: "";
+
+  position: absolute;
+  width: 420px;
+  height: 420px;
+
+  right: -120px;
+  top: -120px;
+
+  border-radius:
+    58% 42% 63% 37%
+    /
+    46% 62% 38% 54%;
+
+  background: var(--sage);
+  opacity: 0.18;
+
+  transform: rotate(18deg);
+}
+
+.about__eyebrow {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid var(--line);
+
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about__content {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: minmax(0, 2.3fr) minmax(260px, 0.7fr);
+
+  gap: 4rem;
+  align-items: end;
+}
+
+.about h2 {
+  margin: 0;
+
+  font-size: clamp(4rem, 9vw, 10rem);
+  line-height: 0.82;
+
+  letter-spacing: -0.075em;
+  font-weight: 800;
+}
+
+.about h2 em {
+  font-family: var(--font-instrument-serif), serif;
+
+  font-style: italic;
+  font-weight: 400;
+
+  color: var(--forest);
+}
+
+.about__content p {
+  margin: 0;
+
+  max-width: 430px;
+
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.55;
+
+  color: rgba(28, 29, 24, 0.72);
+}
+
+.about__meta {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.6rem;
+
+  padding-top: 2rem;
+
+  border-top: 1px solid var(--line);
+}
+
+.about__meta span {
+  padding: 0.55rem 0.8rem;
+
+  border: 1px solid rgba(28, 29, 24, 0.45);
+  border-radius: 999px;
+
+  background: rgba(158, 174, 147, 0.16);
+
+  font-family: var(--font-geist-mono), monospace;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .about__content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about h2 {
+    font-size: clamp(3.5rem, 15vw, 6rem);
+  }
+
+  .about__content p {
+    max-width: 100%;
+  }
+}

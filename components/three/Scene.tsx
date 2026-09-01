@@ -7,6 +7,7 @@ import PlantModel from "./models/PlantModel";
 import PlantModel2 from "./models/PlantModel2";
 import GuitarAmp from "./models/GuitarAmp";
 import CeilingLight from "./models/CeilingLight";
+import SmallTable from "./models/SmallTable";
 import Room from "./models/Room";
 
 export default function Scene() {
@@ -44,6 +45,15 @@ export default function Scene() {
       <PlantModel2 />
       <GuitarAmp />
       <CeilingLight />
+
+      {/* SMALL TABLE - RIGHT CORNER */}
+      <group
+        position={[5.5, -1.85, -1.5]}
+        rotation={[0, -0.55, 0]}
+        scale={0.65}
+      >
+        <SmallTable />
+      </group>
 
       {/* HERO OBJECT */}
       <HeroSculpture />

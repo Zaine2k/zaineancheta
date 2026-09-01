@@ -5,7 +5,7 @@ export default function Work() {
     <section id="work" className="work">
       <div className="work__eyebrow">
         <span>SELECTED WORK</span>
-        <span>03</span>
+        <span>06</span>
       </div>
 
       <div className="work__intro">
@@ -40,9 +40,9 @@ export default function Work() {
           </h3>
 
           <p className="work-card__description">
-            Analyzed over 300k+ oil fracturing records to identify
-            operational patterns across North America and communicate
-            performance insights through data analysis and visualization.
+            Analyzed over 300k+ oil fracturing records to identify operational
+            patterns across North America and communicate performance insights
+            through data analysis and visualization.
           </p>
 
           <div className="work-card__details">
@@ -109,18 +109,61 @@ export default function Work() {
           </div>
         </article>
 
+        {/* DSMLC FINAL COMPETITION */}
+        <article className="work-card work-card--dsmlc">
+          <div className="work-card__top">
+            <span className="work-card__number">03</span>
+            <span className="work-card__type">
+              DATA SCIENCE / 1ST PLACE
+            </span>
+          </div>
+
+          <h3>
+            CANADIAN SMALL
+            <br />
+            BUSINESS GROWTH
+            <br />
+            ANALYSIS
+          </h3>
+
+          <p className="work-card__description">
+            Won 1st Place at the 2025 DSMLC Final Competition by analyzing
+            Canadian small-business loan and claims data to uncover financing,
+            growth, and business performance trends.
+          </p>
+
+          <div className="work-card__details">
+            <div>
+              <span className="work-card__label">WHAT I DID</span>
+
+              <p>
+                Explored loan and claims datasets, identified meaningful
+                business growth patterns, developed data visualizations, and
+                presented evidence-based findings to judges and industry
+                professionals.
+              </p>
+            </div>
+          </div>
+
+          <div className="work-card__tags">
+            <span>Python</span>
+            <span>R</span>
+            <span>Power BI</span>
+            <span>Data Analysis</span>
+            <span>Visualization</span>
+          </div>
+        </article>
+
         {/* RESYNTH */}
         <article className="work-card work-card--resynth">
           <div className="work-card__top">
-            <span className="work-card__number">03</span>
+            <span className="work-card__number">04</span>
             <span className="work-card__type">
               AUDIO / MACHINE LEARNING
             </span>
           </div>
 
-          <h3>
-            RESYNTH
-          </h3>
+          <h3>RESYNTH</h3>
 
           <p className="work-card__description">
             An experimental audio analysis system for estimating synthesizer
@@ -148,6 +191,86 @@ export default function Work() {
             <span>Optuna</span>
             <span>DSP</span>
             <span>Audio Analysis</span>
+          </div>
+        </article>
+
+        {/* SIMPLE GAIN */}
+        <article className="work-card work-card--simplegain">
+          <div className="work-card__top">
+            <span className="work-card__number">05</span>
+            <span className="work-card__type">
+              AUDIO SOFTWARE / C++
+            </span>
+          </div>
+
+          <h3>
+            SIMPLE
+            <br />
+            GAIN
+          </h3>
+
+          <p className="work-card__description">
+            Built a native VST3 audio plugin in C++ as a focused exploration of
+            real-time audio processing, plugin architecture, parameter
+            management, and JUCE development.
+          </p>
+
+          <div className="work-card__details">
+            <div>
+              <span className="work-card__label">WHAT I DID</span>
+
+              <p>
+                Implemented real-time gain processing, parameter state
+                management, plugin initialization, and a custom interface while
+                building and testing the VST3 inside a DAW.
+              </p>
+            </div>
+          </div>
+
+          <div className="work-card__tags">
+            <span>C++</span>
+            <span>JUCE</span>
+            <span>VST3</span>
+            <span>DSP</span>
+            <span>CMake</span>
+          </div>
+        </article>
+
+        {/* CODEJUMBLR */}
+        <article className="work-card work-card--codejumblr">
+          <div className="work-card__top">
+            <span className="work-card__number">06</span>
+            <span className="work-card__type">
+              WEB DEVELOPMENT / CRYPTOGRAPHY
+            </span>
+          </div>
+
+          <h3>
+            CODE
+            <br />
+            JUMBLR
+          </h3>
+
+          <p className="work-card__description">
+            Built a lightweight cryptography website for simple Caesar cipher encryption, decryption and text modification tools.
+          </p>
+
+          <div className="work-card__details">
+            <div>
+              <span className="work-card__label">WHAT I DID</span>
+
+              <p>
+                Implemented a web application with a simple user interface for encrypting and decrypting text using the Caesar cipher, 
+                along with additional text modification features. Implemented all the encryption logic in JavaScript, and styled the application using HTML and CSS.
+              </p>
+            </div>
+          </div>
+
+          <div className="work-card__tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Web Development</span>
           </div>
         </article>
       </div>

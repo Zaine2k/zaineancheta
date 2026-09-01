@@ -82,8 +82,7 @@
 }
 
 /* =========================================
-   PINTEREST-STYLE GRID
-   FILLS LEFT → RIGHT FIRST
+   GRID
 ========================================= */
 
 .work__grid {
@@ -144,8 +143,20 @@
   min-height: 440px;
 }
 
+.work-card--dsmlc {
+  min-height: 535px;
+}
+
 .work-card--resynth {
   min-height: 520px;
+}
+
+.work-card--simplegain {
+  min-height: 420px;
+}
+
+.work-card--codejumblr {
+  min-height: 470px;
 }
 
 /* =========================================
@@ -309,6 +320,23 @@
 }
 
 /* =========================================
+   DSMLC
+========================================= */
+
+.work-card--dsmlc {
+  background:
+    linear-gradient(
+      145deg,
+      #d8a662 0%,
+      #c58c47 100%
+    );
+
+  color: #2d2116;
+
+  border: 1px solid #b77d3f;
+}
+
+/* =========================================
    RESYNTH
 ========================================= */
 
@@ -333,6 +361,40 @@
   border-color: rgba(255, 255, 255, 0.3);
 
   background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================
+   SIMPLE GAIN
+========================================= */
+
+.work-card--simplegain {
+  background:
+    linear-gradient(
+      145deg,
+      #c8d8df 0%,
+      #aebfc8 100%
+    );
+
+  color: #1f292d;
+
+  border: 1px solid #9eafb7;
+}
+
+/* =========================================
+   CODEJUMBLR
+========================================= */
+
+.work-card--codejumblr {
+  background:
+    linear-gradient(
+      145deg,
+      #ddc7d9 0%,
+      #c7abc3 100%
+    );
+
+  color: #30242f;
+
+  border: 1px solid #b99ab4;
 }
 
 /* =========================================
@@ -398,7 +460,10 @@
 
   .work-card--oil,
   .work-card--housing,
+  .work-card--dsmlc,
   .work-card--resynth,
+  .work-card--simplegain,
+  .work-card--codejumblr,
   .work-card--small,
   .work-card--medium,
   .work-card--tall {

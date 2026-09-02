@@ -6,6 +6,7 @@ import * as THREE from "three";
 
 export default function HeroSculpture() {
   const groupRef = useRef<THREE.Group>(null);
+  const knobRefs = useRef<(THREE.Group | null)[]>([]);
 
   const whiteKeys = useMemo(
     () => Array.from({ length: 14 }, (_, i) => i),
@@ -35,21 +36,35 @@ export default function HeroSculpture() {
     []
   );
 
+  const ledRefs = useRef<(THREE.Mesh | null)[]>([]);
+
+  const leds = useMemo(
+    () => [
+      { position: [-1.72, 0.31, 0.755], color: "#ff5f57", speed: 2.2 },
+      { position: [-1.28, 0.31, 0.755], color: "#ffbd2e", speed: 3.1 },
+      { position: [-0.84, 0.31, 0.755], color: "#28c840", speed: 4.2 },
+      { position: [0.91, 0.31, 0.755], color: "#86a7ff", speed: 2.7 },
+      { position: [1.35, 0.31, 0.755], color: "#ff795f", speed: 3.6 },
+      { position: [1.79, 0.31, 0.755], color: "#b8e986", speed: 5.1 },
+    ],
+    []
+  );
+
   useFrame((state) => {
     if (!groupRef.current) return;
 
     const time = state.clock.elapsedTime;
 
-    // gentle floating
+    // Gentle floating
     groupRef.current.position.y =
-      Math.sin(time * 0.75) * 0.12;
+      0.15 + Math.sin(time * 0.75) * 0.12;
 
-    // base rotation
+    // Base rotation
     const baseX = -0.3;
     const baseY = -0.45;
     const baseZ = -0.06;
 
-    // cursor reaction
+    // Cursor reaction
     const mouseX = state.pointer.x;
     const mouseY = state.pointer.y;
 
@@ -67,13 +82,60 @@ export default function HeroSculpture() {
 
     groupRef.current.rotation.z =
       baseZ + Math.sin(time * 0.4) * 0.018;
+
+    // Rotate each knob at a slightly different speed
+    knobRefs.current.forEach((knob, index) => {
+      if (!knob) return;
+
+      const direction = index % 2 === 0 ? 1 : -1;
+      const speed = 0.35 + (index % 4) * 0.08;
+
+      knob.rotation.y =
+        time * speed * direction +
+        index * 0.7;
+    });
+    // Blink and pulse the LED indicators
+    ledRefs.current.forEach((led, index) => {
+      if (!led) return;
+
+      const material = led.material as THREE.MeshStandardMaterial;
+      const ledData = leds[index];
+
+      const pulse =
+        Math.sin(time * ledData.speed + index * 1.7) * 0.5 + 0.5;
+
+      const blink = pulse > 0.58;
+      const brightness = blink ? 1 : 0.08;
+
+      material.emissiveIntensity = THREE.MathUtils.lerp(
+        material.emissiveIntensity,
+        blink ? 4.5 : 0.15,
+        0.16
+      );
+
+      led.scale.setScalar(
+        THREE.MathUtils.lerp(
+          led.scale.x,
+          blink ? 1.15 : 0.9,
+          0.14
+        )
+      );
+
+      material.opacity = THREE.MathUtils.lerp(
+        material.opacity,
+        brightness,
+        0.16
+      );
+    });
   });
+
+
 
   return (
     <group
       ref={groupRef}
       scale={1.05}
-      position={[2.0, 0.15, 0]}
+      position={[2, 0.15, 0]}
       rotation={[-0.3, -0.45, -0.06]}
     >
       {/* =====================================
@@ -116,33 +178,96 @@ export default function HeroSculpture() {
           roughness={0.58}
         />
       </mesh>
+{/* =====================================
+    BLINKING LED INDICATORS
+====================================== */}
 
+{leds.map((led, index) => (
+  <group
+    key={`led-group-${index}`}
+    position={led.position as [number, number, number]}
+  >
+    {/* DARK LED HOUSING */}
+
+    <mesh position={[0, 0, -0.012]}>
+      <circleGeometry args={[0.057, 20]} />
+
+      <meshStandardMaterial
+        color="#242424"
+        roughness={0.7}
+      />
+    </mesh>
+
+    {/* BLINKING LED */}
+
+    <mesh
+      ref={(element) => {
+        ledRefs.current[index] = element;
+      }}
+      position={[0, 0, 0.006]}
+    >
+      <circleGeometry args={[0.038, 20]} />
+
+      <meshStandardMaterial
+        color={led.color}
+        emissive={led.color}
+        emissiveIntensity={2}
+        roughness={0.18}
+        transparent
+        opacity={1}
+        toneMapped={false}
+      />
+    </mesh>
+
+    {/* SMALL LED GLOW */}
+
+    <pointLight
+      color={led.color}
+      intensity={0.15}
+      distance={0.45}
+      decay={2}
+      position={[0, 0, 0.08]}
+    />
+  </group>
+))}
       {/* =====================================
           KNOBS
       ====================================== */}
 
       {knobs.map(([x, y], index) => (
         <group
-          key={index}
+          key={`knob-${index}`}
           position={[x, y, 0.72]}
           rotation={[Math.PI / 2, 0, 0]}
         >
-          <mesh>
-            <cylinderGeometry args={[0.13, 0.13, 0.13, 24]} />
+          <group
+            ref={(element) => {
+              knobRefs.current[index] = element;
+            }}
+            rotation={[0, index * 0.7, 0]}
+          >
+            <mesh>
+              <cylinderGeometry
+                args={[0.13, 0.13, 0.13, 24]}
+              />
 
-            <meshStandardMaterial
-              color="#202020"
-              roughness={0.5}
-              metalness={0.12}
-            />
-          </mesh>
+              <meshStandardMaterial
+                color="#202020"
+                roughness={0.5}
+                metalness={0.12}
+              />
+            </mesh>
 
-          {/* indicator */}
-          <mesh position={[0, 0.072, 0.07]}>
-            <boxGeometry args={[0.018, 0.018, 0.09]} />
+            {/* INDICATOR */}
 
-            <meshStandardMaterial color="#ffffff" />
-          </mesh>
+            <mesh position={[0, 0.072, 0.07]}>
+              <boxGeometry
+                args={[0.018, 0.018, 0.09]}
+              />
+
+              <meshStandardMaterial color="#ffffff" />
+            </mesh>
+          </group>
         </group>
       ))}
 
@@ -161,7 +286,7 @@ export default function HeroSculpture() {
         />
       </mesh>
 
-      {/* fake waveform display */}
+      {/* FAKE WAVEFORM DISPLAY */}
 
       {Array.from({ length: 9 }).map((_, i) => {
         const height =
@@ -248,7 +373,9 @@ export default function HeroSculpture() {
               0.72,
             ]}
           >
-            <boxGeometry args={[0.235, 0.5, 0.08]} />
+            <boxGeometry
+              args={[0.235, 0.5, 0.08]}
+            />
 
             <meshStandardMaterial
               color="#ffffff"
@@ -277,7 +404,9 @@ export default function HeroSculpture() {
               0.79,
             ]}
           >
-            <boxGeometry args={[0.13, 0.3, 0.13]} />
+            <boxGeometry
+              args={[0.13, 0.3, 0.13]}
+            />
 
             <meshStandardMaterial
               color="#171717"
@@ -380,7 +509,9 @@ export default function HeroSculpture() {
         position={[1.95, 0.92, -0.1]}
         rotation={[0, 0, -0.25]}
       >
-        <cylinderGeometry args={[0.025, 0.025, 0.65, 12]} />
+        <cylinderGeometry
+          args={[0.025, 0.025, 0.65, 12]}
+        />
 
         <meshStandardMaterial
           color="#ff795f"

@@ -197,6 +197,37 @@ export default function Room() {
       </mesh>
 
       {/* =====================================
+          RIGHT WALL
+      ====================================== */}
+
+      <mesh
+        position={[6.5, 2.3, 0]}
+        rotation={[0, -Math.PI / 2, 0]}
+        receiveShadow
+      >
+        <planeGeometry args={[8, 9]} />
+
+        <meshStandardMaterial
+          color="#cdbca6"
+          roughness={0.96}
+        />
+      </mesh>
+
+      {/* RIGHT WALL BASEBOARD */}
+
+      <mesh
+        position={[6.42, -2.02, 0.25]}
+        rotation={[0, Math.PI / 2, 0]}
+      >
+        <boxGeometry args={[6.6, 0.14, 0.12]} />
+
+        <meshStandardMaterial
+          color="#b8a58f"
+          roughness={0.82}
+        />
+      </mesh>
+
+      {/* =====================================
           CENTER WINDOW
       ====================================== */}
 

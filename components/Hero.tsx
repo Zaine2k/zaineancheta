@@ -15,7 +15,7 @@ export default function Hero() {
       </div>
 
       <span className="hero__label hero__label--side">
-        SOFTWARE — DATA — AUDIO — CREATIVE TECH
+        DATA SCIENCE - SOFTWARE - AUDIO
       </span>
 
       {/* NAME */}

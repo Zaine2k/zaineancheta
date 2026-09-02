@@ -12,6 +12,7 @@ import Chandelier from "./models/Chandelier";
 import Guitar from "./models/Guitar";
 import Shelf from "./models/Shelf";
 import Vinyl from "./models/Vinyl";
+import RecordPlayer from "./models/RecordPlayer";
 import Room from "./models/Room";
 
 
@@ -87,11 +88,21 @@ export default function Scene() {
       {/* INTERACTIVE VINYL */}
 
       <group
-        position={[-3.4, 2, 13.65]}
+        position={[-3., 2, 14.5]}
         rotation={[0, 0.3, 0]}
         scale={0.25}
       >
         <Vinyl />
+      </group>
+
+      {/* SPINNING RECORD PLAYER */}
+
+      <group
+        position={[-10.8, -0.4, 8.65]}
+        rotation={[0, 58, 0]}
+        scale={0.85}
+      >
+        <RecordPlayer />
       </group>
 
         <SmallTable />

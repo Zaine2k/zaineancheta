@@ -242,8 +242,8 @@ export default function AwardTrophy() {
       </mesh>
 
       <mesh
-        position={[-0.76, 0.42, 0]}
-        rotation={[0, 0, Math.PI / 2]}
+        position={[-0.70, 0.42, 0]}
+        rotation={[0, 0, 2]}
       >
         <cylinderGeometry args={[0.1, 0.12, 0.18, 32]} />
 
@@ -255,8 +255,8 @@ export default function AwardTrophy() {
       </mesh>
 
       <mesh
-        position={[0.76, 0.42, 0]}
-        rotation={[0, 0, Math.PI / 2]}
+        position={[0.70, 0.42, 0]}
+        rotation={[0, 0, -2]}
       >
         <cylinderGeometry args={[0.1, 0.12, 0.18, 32]} />
 

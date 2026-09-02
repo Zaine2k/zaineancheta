@@ -9,7 +9,10 @@ import GuitarAmp from "./models/GuitarAmp";
 import CeilingLight from "./models/CeilingLight";
 import SmallTable from "./models/SmallTable";
 import Chandelier from "./models/Chandelier";
+import Guitar from "./models/Guitar";
+import Shelf from "./models/Shelf";
 import Room from "./models/Room";
+
 
 export default function Scene() {
   return (
@@ -54,13 +57,32 @@ export default function Scene() {
       >
         <Chandelier />
       </group>
+      {/* MODERN OAK SHELF */}
 
+      <group
+        position={[-4.2, -2.08, -2.72]}
+        rotation={[0, 0.08, 0]}
+        scale={0.85}
+      >
+        <Shelf />
+      </group>
       {/* SMALL TABLE - RIGHT CORNER */}
       <group
         position={[5.5, -1.85, -1.5]}
         rotation={[0, -0.55, 0]}
         scale={0.65}
       >
+
+      {/* MINT TELECASTER */}
+
+      <group
+        position={[-0.9, -0.43, 4.15]}
+        rotation={[0, 1.38, 0]}
+        scale={0.85}
+      >
+        <Guitar />
+      </group>
+
         <SmallTable />
       </group>
 

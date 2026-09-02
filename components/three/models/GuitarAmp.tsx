@@ -3,8 +3,8 @@
 export default function GuitarAmp() {
   return (
     <group
-      position={[-3.5, -1.55, -1.90]}
-      rotation={[0, 0.22, 0]}
+      position={[3.5, -1.55, -1.90]}
+      rotation={[0, -0.22, 0]}
       scale={0.95}
     >
       {/* =====================================

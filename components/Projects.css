@@ -89,6 +89,36 @@
 }
 
 /* =========================================
+   INTRO
+========================================= */
+
+.projects__intro {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+
+  width: min(100%, 900px);
+
+  margin: clamp(3rem, 6vw, 5rem) auto;
+}
+
+.projects__intro p {
+  width: min(100%, 620px);
+
+  margin: 0;
+
+  font-size: clamp(1.15rem, 2vw, 1.8rem);
+  line-height: 1.45;
+
+  letter-spacing: -0.025em;
+  text-align: center;
+
+  color: rgba(28, 29, 24, 0.72);
+}
+
+/* =========================================
    STACK
 ========================================= */
 
@@ -173,6 +203,20 @@
 /* =========================================
    PROJECT CONTENT
 ========================================= */
+
+.project__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+.project__header .project__type:last-child {
+  flex-shrink: 0;
+
+  text-align: right;
+}
 
 .project__type {
   margin: 0 0 0.4rem;
@@ -550,6 +594,24 @@
 }
 
 /* =========================================
+   DARK THEME
+========================================= */
+
+:is(html.dark, html[data-theme="dark"]) .projects__intro p {
+  color: rgba(240, 237, 228, 0.68);
+}
+
+:is(html.dark, html[data-theme="dark"]) .projects__stack::before,
+:is(html.dark, html[data-theme="dark"]) .projects__stack::after {
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(240, 237, 228, 0.24) 2px,
+      transparent 2.2px
+    );
+}
+
+/* =========================================
    MOBILE
 ========================================= */
 
@@ -576,6 +638,16 @@
 
   .projects__eyebrow {
     margin-bottom: 1.5rem;
+  }
+
+  .projects__intro {
+    justify-content: flex-start;
+
+    margin: 3rem auto;
+  }
+
+  .projects__intro p {
+    font-size: 1.1rem;
   }
 
   .projects__stack {
@@ -611,6 +683,16 @@
     padding: 1.5rem;
 
     border-radius: 14px;
+  }
+
+  .project__header {
+    flex-direction: column;
+
+    gap: 0.4rem;
+  }
+
+  .project__header .project__type:last-child {
+    text-align: left;
   }
 
   .project h2 {

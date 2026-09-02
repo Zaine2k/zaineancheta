@@ -14,17 +14,16 @@ export default function About() {
           <br />
           BETWEEN <em>CODE </em>,
           <br />
-          SOUND, DATA
+          DATA, SOUND
           <br />
           &amp; CULTURE.
         </h2>
 
         <p>
-          I&apos;m a third-year computer scientist at the University of
-          Calgary. My work moves between web development, data science,
-          audio programming, and interactive media. I&apos;m interested in
-          the intersection of technology and culture, and how we can use
-          code to create meaningful experiences.
+          I&apos;m a third-year Computer Science student at the University of
+          Calgary, working across data science, software development, audio, and
+          interactive media. I&apos;m especially interested in turning data into
+          meaningful insights, stories, and interactive experiences.
         </p>
       </div>
 
@@ -40,9 +39,9 @@ export default function About() {
               <h3>UNIVERSITY OF CALGARY</h3>
 
               <p>
-                BSc Computer Science
+                BSc Computer Science + Minor in Data Science
                 <br />
-                Minor in Data Science
+                Faculty of Science Co-op Program
               </p>
             </div>
 

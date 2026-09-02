@@ -8,16 +8,26 @@ export default function Projects() {
         <span>02</span>
       </div>
 
+      <div className="projects__intro">
+        <p>
+          Data science is the main focus of my career, but I&apos;ve also pursued
+          opportunities in software development, audio, and interactive media that
+          were too meaningful to pass up. These experiences have strengthened how I
+          build, communicate ideas, and turn technical work into engaging,
+          human-centered experiences.
+        </p>
+      </div>
+
       <div className="projects__stack">
         {/* BLANK AUDIO */}
         <article className="project project--blank">
-          <p className="project__type">
-            FOUNDER &amp; SOFTWARE DEVELOPER
-          </p>
+          <div className="project__header">
+            <p className="project__type">
+              FOUNDER &amp; SOFTWARE DEVELOPER
+            </p>
 
-          <p className="project__type">
-            AUG 2026 - PRESENT
-          </p>
+            <p className="project__type">AUG 2026 — PRESENT</p>
+          </div>
 
           <h2>blank audio</h2>
 
@@ -38,6 +48,7 @@ export default function Projects() {
             target="_blank"
             rel="noopener noreferrer"
             className="project__embed"
+            aria-label="Visit the Blank Audio website"
           >
             <img
               src="/images/blankaudiothumb.png"
@@ -45,9 +56,7 @@ export default function Projects() {
             />
 
             <div className="project__embed-info">
-              <span className="project__embed-domain">
-                blankaudio.dev
-              </span>
+              <span className="project__embed-domain">blankaudio.dev</span>
 
               <span className="project__embed-title">
                 Visit Blank Audio ↗
@@ -58,13 +67,13 @@ export default function Projects() {
 
         {/* GLASS GECKO GAMES */}
         <article className="project project--depths">
-          <p className="project__type">
-            ASSOCIATE PROGRAMMER / MUSIC COMPOSER
-          </p>
+          <div className="project__header">
+            <p className="project__type">
+              ASSOCIATE PROGRAMMER / MUSIC COMPOSER
+            </p>
 
-          <p className="project__type">
-            AUG 2025 - PRESENT
-          </p>
+            <p className="project__type">AUG 2025 — PRESENT</p>
+          </div>
 
           <h2>GLASS GECKO GAMES</h2>
 
@@ -86,6 +95,7 @@ export default function Projects() {
             target="_blank"
             rel="noopener noreferrer"
             className="project__embed"
+            aria-label="View Scale the Depths on Steam"
           >
             <img
               src="/images/scalethedepthsthumb.png"
@@ -93,9 +103,7 @@ export default function Projects() {
             />
 
             <div className="project__embed-info">
-              <span className="project__embed-domain">
-                SCALE THE DEPTHS
-              </span>
+              <span className="project__embed-domain">SCALE THE DEPTHS</span>
 
               <span className="project__embed-title">
                 View on Steam ↗
@@ -106,13 +114,11 @@ export default function Projects() {
 
         {/* DATA SCIENCE & MACHINE LEARNING CLUB */}
         <article className="project project--dsmlc">
-          <p className="project__type">
-            COMPETITION DIRECTOR
-          </p>
+          <div className="project__header">
+            <p className="project__type">COMPETITION DIRECTOR</p>
 
-          <p className="project__type">
-            APR 2025 - PRESENT
-          </p>
+            <p className="project__type">APR 2025 — PRESENT</p>
+          </div>
 
           <h2>
             DATA SCIENCE &amp;

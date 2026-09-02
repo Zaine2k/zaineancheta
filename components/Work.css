@@ -480,3 +480,161 @@
     margin-top: 2.5rem;
   }
 }
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+:is(html.dark, html[data-theme="dark"]) .work {
+  background: #11120f;
+  color: #f0ede4;
+}
+
+:is(html.dark, html[data-theme="dark"]) .work__eyebrow {
+  border-color: rgba(240, 237, 228, 0.2);
+}
+
+:is(html.dark, html[data-theme="dark"]) .work__intro h2 em {
+  color: #d98e69;
+}
+
+:is(html.dark, html[data-theme="dark"]) .work__intro p {
+  color: rgba(240, 237, 228, 0.65);
+}
+
+/* =========================================
+   DARK CARD BASE
+========================================= */
+
+:is(html.dark, html[data-theme="dark"]) .work-card {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 12px 35px rgba(0, 0, 0, 0.14);
+}
+
+:is(html.dark, html[data-theme="dark"]) .work-card:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 22px 50px rgba(0, 0, 0, 0.35);
+}
+
+:is(html.dark, html[data-theme="dark"]) .work-card__top,
+:is(html.dark, html[data-theme="dark"]) .work-card__label {
+  opacity: 0.58;
+}
+
+:is(html.dark, html[data-theme="dark"]) .work-card__description,
+:is(html.dark, html[data-theme="dark"]) .work-card__details p {
+  opacity: 0.72;
+}
+
+:is(html.dark, html[data-theme="dark"]) .work-card__tags {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+:is(html.dark, html[data-theme="dark"]) .work-card__tags span {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* =========================================
+   DARK OIL PROJECT
+========================================= */
+
+:is(html.dark, html[data-theme="dark"]) .work-card--oil {
+  background:
+    linear-gradient(
+      145deg,
+      #4b4535 0%,
+      #312e25 100%
+    );
+
+  color: #f2ecdc;
+
+  border-color: #625b47;
+}
+
+/* =========================================
+   DARK HOUSING
+========================================= */
+
+:is(html.dark, html[data-theme="dark"]) .work-card--housing {
+  background:
+    linear-gradient(
+      145deg,
+      #354438 0%,
+      #243029 100%
+    );
+
+  color: #edf4ea;
+
+  border-color: #455949;
+}
+
+/* =========================================
+   DARK DSMLC
+========================================= */
+
+:is(html.dark, html[data-theme="dark"]) .work-card--dsmlc {
+  background:
+    linear-gradient(
+      145deg,
+      #875728 0%,
+      #5f3b20 100%
+    );
+
+  color: #fff1dc;
+
+  border-color: #9e6734;
+}
+
+/* =========================================
+   DARK RESYNTH
+========================================= */
+
+:is(html.dark, html[data-theme="dark"]) .work-card--resynth {
+  background:
+    linear-gradient(
+      145deg,
+      #493b79 0%,
+      #2d254d 100%
+    );
+
+  color: #f8f5ff;
+
+  border-color: #5c4c91;
+}
+
+/* =========================================
+   DARK SIMPLE GAIN
+========================================= */
+
+:is(html.dark, html[data-theme="dark"]) .work-card--simplegain {
+  background:
+    linear-gradient(
+      145deg,
+      #354850 0%,
+      #26363c 100%
+    );
+
+  color: #edf6f8;
+
+  border-color: #46606a;
+}
+
+/* =========================================
+   DARK CODEJUMBLR
+========================================= */
+
+:is(html.dark, html[data-theme="dark"]) .work-card--codejumblr {
+  background:
+    linear-gradient(
+      145deg,
+      #573f54 0%,
+      #392c38 100%
+    );
+
+  color: #f9edf6;
+
+  border-color: #6c5068;
+}

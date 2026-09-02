@@ -65,7 +65,7 @@ export default function Interests() {
 
           <p className="interests__note">
             #1 Scottie Barnes superfan, lifelong basketball analytics nerd, boxing fan,
-            synthesizer enthusiast, and former gamer (1x Masters Apex Legends, 2x Masters Marvel Rivals | Top 100 Dr. Strange NA).
+            synthesizer enthusiast, and former gamer (1x Masters Apex Legends, 2x Celestial Marvel Rivals | Top 100 Dr. Strange NA).
           </p>
 
           <p className="interests__note interests__note--quote">

@@ -353,6 +353,22 @@ export default function Room() {
       </mesh>
 
       {/* =====================================
+          LEFT WALL BASEBOARD
+      ====================================== */}
+
+      <mesh
+        position={[-6.42, -2.02, 0.25]}
+        rotation={[0, Math.PI / 2, 0]}
+      >
+        <boxGeometry args={[6.6, 0.14, 0.12]} />
+
+        <meshStandardMaterial
+          color="#b8a58f"
+          roughness={0.82}
+        />
+      </mesh>
+
+      {/* =====================================
           BASEBOARD
       ====================================== */}
 

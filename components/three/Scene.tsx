@@ -11,6 +11,7 @@ import SmallTable from "./models/SmallTable";
 import Chandelier from "./models/Chandelier";
 import Guitar from "./models/Guitar";
 import Shelf from "./models/Shelf";
+import Vinyl from "./models/Vinyl";
 import Room from "./models/Room";
 
 
@@ -81,6 +82,16 @@ export default function Scene() {
         scale={0.85}
       >
         <Guitar />
+      </group>
+
+      {/* INTERACTIVE VINYL */}
+
+      <group
+        position={[-3.4, 2, 13.65]}
+        rotation={[0, 0.3, 0]}
+        scale={0.25}
+      >
+        <Vinyl />
       </group>
 
         <SmallTable />

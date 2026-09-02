@@ -1,11 +1,35 @@
 .interests {
+  --interests-body-text: rgba(28, 29, 24, 0.66);
+  --interests-muted-text: rgba(28, 29, 24, 0.52);
+  --interests-panel-border: rgba(28, 29, 24, 0.12);
+  --interests-hobbies-background: #e6dfef;
+  --interests-books-background: #e9d9ca;
+  --interests-tag-background: rgba(255, 255, 255, 0.25);
+  --interests-tag-hover: rgba(255, 255, 255, 0.52);
+  --interests-tag-border: rgba(28, 29, 24, 0.14);
+  --interests-tag-hover-border: rgba(28, 29, 24, 0.3);
+
   position: relative;
 
   padding: 1rem 2rem 5rem;
 
   background: var(--cream);
 
+  color: var(--foreground);
+
   overflow: hidden;
+}
+
+html[data-theme="dark"] .interests {
+  --interests-body-text: rgba(236, 232, 220, 0.7);
+  --interests-muted-text: rgba(236, 232, 220, 0.5);
+  --interests-panel-border: rgba(236, 232, 220, 0.14);
+  --interests-hobbies-background: #25212c;
+  --interests-books-background: #29221d;
+  --interests-tag-background: rgba(236, 232, 220, 0.06);
+  --interests-tag-hover: rgba(236, 232, 220, 0.12);
+  --interests-tag-border: rgba(236, 232, 220, 0.16);
+  --interests-tag-hover-border: rgba(236, 232, 220, 0.34);
 }
 
 .interests::before {
@@ -108,7 +132,7 @@
   font-size: 0.95rem;
   line-height: 1.6;
 
-  color: rgba(28, 29, 24, 0.66);
+  color: var(--interests-body-text);
 }
 
 
@@ -136,16 +160,16 @@
 
   padding: 1.4rem;
 
-  border: 1px solid rgba(28, 29, 24, 0.12);
+  border: 1px solid var(--interests-panel-border);
   border-radius: 16px;
 }
 
 .interests__panel--hobbies {
-  background: #e6dfef;
+  background: var(--interests-hobbies-background);
 }
 
 .interests__panel--books {
-  background: #e9d9ca;
+  background: var(--interests-books-background);
 }
 
 .interests__label {
@@ -159,7 +183,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
 
-  color: rgba(28, 29, 24, 0.48);
+  color: var(--interests-muted-text);
 }
 
 
@@ -182,10 +206,12 @@
 
   padding: 0.6rem 0.8rem;
 
-  border: 1px solid rgba(28, 29, 24, 0.14);
+  border: 1px solid var(--interests-tag-border);
   border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--interests-tag-background);
+
+  color: var(--foreground);
 
   transition:
     transform 0.2s ease,
@@ -196,9 +222,9 @@
 .interests__tag:hover {
   transform: translateY(-2px) rotate(-1deg);
 
-  background: rgba(255, 255, 255, 0.52);
+  background: var(--interests-tag-hover);
 
-  border-color: rgba(28, 29, 24, 0.3);
+  border-color: var(--interests-tag-hover-border);
 }
 
 .interests__tag:nth-child(even):hover {
@@ -228,7 +254,7 @@
   font-size: 0.76rem;
   line-height: 1.55;
 
-  color: rgba(28, 29, 24, 0.58);
+  color: var(--interests-muted-text);
 }
 
 
@@ -264,7 +290,7 @@
   font-size: 0.68rem;
   line-height: 1.45;
 
-  color: rgba(28, 29, 24, 0.52);
+  color: var(--interests-muted-text);
 }
 
 

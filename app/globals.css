@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* =========================================
+   LIGHT THEME
+========================================= */
+
 :root {
   --background: #f3efe6;
   --foreground: #171918;
@@ -18,6 +22,34 @@
   --cream: #fff9ed;
 
   --line: rgba(23, 25, 24, 0.22);
+  --muted-text: rgba(28, 29, 24, 0.58);
+  --strong-line: rgba(28, 29, 24, 0.75);
+}
+
+/* =========================================
+   DARK THEME — LATE-NIGHT STUDIO
+========================================= */
+
+html[data-theme="dark"] {
+  --background: #11130f;
+  --foreground: #ece8dc;
+
+  --forest: #4d765d;
+  --moss: #718b62;
+  --sage: #a5b67a;
+  --olive: #b7bd62;
+
+  --clay: #c96f50;
+  --dust: #c6a36d;
+
+  --plum: #776b91;
+  --blue: #667b9f;
+
+  --cream: #1b1e19;
+
+  --line: rgba(236, 232, 220, 0.16);
+  --muted-text: rgba(236, 232, 220, 0.56);
+  --strong-line: rgba(236, 232, 220, 0.48);
 }
 
 @theme inline {
@@ -34,6 +66,12 @@
 
 html {
   scroll-behavior: smooth;
+
+  background: var(--background);
+
+  transition:
+    background-color 500ms ease,
+    color 350ms ease;
 }
 
 body {
@@ -67,6 +105,35 @@ body {
   font-family: var(--font-geist-sans), sans-serif;
 
   overflow-x: hidden;
+
+  transition:
+    background 500ms ease,
+    color 350ms ease;
+}
+
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(103, 82, 166, 0.2),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(65, 105, 225, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 82%,
+      rgba(239, 117, 69, 0.09),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 20% 84%,
+      rgba(31, 95, 70, 0.12),
+      transparent 27%
+    ),
+    var(--background);
 }
 
 main {
@@ -109,9 +176,32 @@ main {
   border-bottom: 1px solid var(--line);
 
   isolation: isolate;
+
+  transition:
+    background 500ms ease,
+    border-color 350ms ease;
 }
 
-/* crooked cable-like line */
+html[data-theme="dark"] .hero {
+  background:
+    radial-gradient(
+      circle at 18% 20%,
+      rgba(83, 109, 166, 0.17),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 82% 76%,
+      rgba(199, 77, 145, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(35, 40, 65, 0.3),
+      rgba(5, 7, 17, 0.08)
+    );
+}
+
+/* Crooked cable-like line */
 
 .hero::before {
   content: "";
@@ -133,6 +223,10 @@ main {
   filter: blur(0.2px);
 
   z-index: 0;
+
+  transition:
+    background-color 350ms ease,
+    opacity 350ms ease;
 }
 
 /* =========================================
@@ -185,6 +279,8 @@ main {
   pointer-events: none;
 
   z-index: 0;
+
+  transition: opacity 500ms ease;
 }
 
 .hero__wash--blue {
@@ -201,6 +297,14 @@ main {
       rgba(65, 105, 225, 0.05) 40%,
       transparent 72%
     );
+}
+
+html[data-theme="dark"] .hero__wash {
+  opacity: 0.75;
+}
+
+html[data-theme="dark"] .hero__wash--blue {
+  opacity: 0.9;
 }
 
 /* =========================================
@@ -239,6 +343,10 @@ main {
 
 .hero h1 span {
   display: block;
+
+  transition:
+    color 350ms ease,
+    text-shadow 350ms ease;
 }
 
 .hero h1 span:first-child {
@@ -264,6 +372,13 @@ main {
     7px 7px 0 rgba(28, 29, 24, 0.1);
 }
 
+html[data-theme="dark"] .hero h1 span:last-child {
+  text-shadow:
+    2px 2px 0 rgba(183, 219, 114, 0.7),
+    4px 4px 0 rgba(229, 183, 109, 0.45),
+    7px 7px 0 rgba(0, 0, 0, 0.45);
+}
+
 /* =========================================
    ROLE
 ========================================= */
@@ -285,9 +400,9 @@ main {
       var(--sage)
     );
 
-  color: var(--foreground);
+  color: #171918;
 
-  border: 1px solid rgba(28, 29, 24, 0.75);
+  border: 1px solid var(--strong-line);
 
   font-family: var(--font-geist-mono), monospace;
 
@@ -299,10 +414,14 @@ main {
 
   text-transform: uppercase;
 
-  box-shadow:
-    5px 5px 0 rgba(28, 29, 24, 0.75);
+  box-shadow: 5px 5px 0 var(--strong-line);
 
   transform: rotate(1.3deg);
+
+  transition:
+    background 350ms ease,
+    border-color 350ms ease,
+    box-shadow 350ms ease;
 }
 
 /* =========================================
@@ -314,6 +433,8 @@ main {
 
   z-index: 3;
 
+  color: #171918;
+
   font-family: var(--font-geist-mono), monospace;
 
   font-size: 0.7rem;
@@ -323,6 +444,10 @@ main {
   letter-spacing: 0.14em;
 
   text-transform: uppercase;
+
+  transition:
+    background-color 350ms ease,
+    border-color 350ms ease;
 }
 
 .hero__label--top {
@@ -378,11 +503,13 @@ main {
 
   line-height: 1.5;
 
-  color: rgba(28, 29, 24, 0.58);
+  color: var(--muted-text);
 
   white-space: pre;
 
   transform: rotate(-1deg);
+
+  transition: color 350ms ease;
 }
 
 .hero__synth-label {
@@ -399,9 +526,11 @@ main {
 
   letter-spacing: 0.12em;
 
-  color: rgba(28, 29, 24, 0.55);
+  color: var(--muted-text);
 
   transform: rotate(3deg);
+
+  transition: color 350ms ease;
 }
 
 /* =========================================
@@ -423,6 +552,13 @@ main {
 
   background-image:
     url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='5' seed='7' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.58'/%3E%3C/svg%3E");
+
+  transition: opacity 350ms ease;
+}
+
+html[data-theme="dark"] .hero__noise {
+  opacity: 0.07;
+  mix-blend-mode: screen;
 }
 
 .hero__texture {
@@ -448,6 +584,23 @@ main {
   mix-blend-mode: multiply;
 
   filter: blur(0.3px);
+
+  transition: opacity 350ms ease;
+}
+
+html[data-theme="dark"] .hero__texture {
+  opacity: 0.035;
+
+  background-image:
+    repeating-linear-gradient(
+      6deg,
+      rgba(242, 238, 229, 0.14) 0,
+      rgba(242, 238, 229, 0.14) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+
+  mix-blend-mode: screen;
 }
 
 /* =========================================
@@ -460,6 +613,11 @@ section:not(.hero) {
   padding: 4rem 2rem;
 
   border-bottom: 1px solid var(--line);
+
+  transition:
+    background-color 500ms ease,
+    color 350ms ease,
+    border-color 350ms ease;
 }
 
 section:not(.hero) h2 {

@@ -14,6 +14,10 @@
   pointer-events: none;
 }
 
+/* =========================================
+   GENERAL LINKS
+========================================= */
+
 .navbar a {
   pointer-events: auto;
 
@@ -25,24 +29,29 @@
   font-weight: 700;
 
   letter-spacing: 0.12em;
-  text-transform: uppercase;
 
+  text-transform: uppercase;
   text-decoration: none;
 
   transition:
     transform 0.18s ease,
     background 0.18s ease,
+    color 0.18s ease,
     border-color 0.18s ease,
     box-shadow 0.18s ease;
 }
+
+/* =========================================
+   BRAND
+========================================= */
 
 .navbar__brand {
   padding: 0.5rem 0.75rem;
 
   background: var(--sage);
+  color: #171918 !important;
 
   border: 1px solid rgba(28, 29, 24, 0.65);
-
   border-radius: 5px 8px 4px 7px;
 
   transform: rotate(-2deg);
@@ -60,6 +69,10 @@
     4px 5px 0 rgba(28, 29, 24, 0.16);
 }
 
+/* =========================================
+   LINKS CONTAINER
+========================================= */
+
 .navbar__links {
   display: flex;
   align-items: center;
@@ -67,38 +80,233 @@
   gap: 0.5rem;
 }
 
-.navbar__links a {
+.navbar__links > a:not(.navbar__resume) {
   padding: 0.5rem 0.7rem;
 
   background: rgba(243, 239, 230, 0.78);
 
   border: 1px solid rgba(28, 29, 24, 0.35);
-
   border-radius: 6px 8px 5px 7px;
 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
-.navbar__links a:nth-child(1) {
+.navbar__links > a:nth-child(1) {
   transform: rotate(0.8deg);
 }
 
-.navbar__links a:nth-child(2) {
+.navbar__links > a:nth-child(2) {
   transform: rotate(-1deg);
 }
 
-.navbar__links a:nth-child(3) {
+.navbar__links > a:nth-child(3) {
   transform: rotate(1.4deg);
 }
 
-.navbar__links a:hover {
+.navbar__links > a:not(.navbar__resume):hover {
   background: var(--dust);
 
   border-color: rgba(28, 29, 24, 0.65);
 
-  transform: translateY(-2px) rotate(0deg);
+  transform:
+    translateY(-2px)
+    rotate(0deg);
 }
+
+/* =========================================
+   DARK NAVIGATION LINKS
+========================================= */
+
+html[data-theme="dark"]
+  .navbar__links
+  > a:not(.navbar__resume) {
+  background: rgba(23, 26, 36, 0.8);
+
+  border-color: rgba(242, 238, 229, 0.26);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+html[data-theme="dark"]
+  .navbar__links
+  > a:not(.navbar__resume):hover {
+  background: var(--dust);
+  color: #171918;
+
+  border-color: rgba(242, 238, 229, 0.5);
+}
+
+/* =========================================
+   RESUME
+========================================= */
+
+.navbar__resume {
+  padding: 0.55rem 0.8rem;
+
+  background: var(--forest);
+  color: var(--cream) !important;
+
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.navbar__resume:hover {
+  background: var(--sage);
+  color: #171918 !important;
+
+  border-color: var(--sage);
+
+  transform: translateY(-2px);
+}
+
+html[data-theme="dark"] .navbar__resume {
+  color: #080a12 !important;
+}
+
+/* =========================================
+   THEME TOGGLE
+========================================= */
+
+.navbar__theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  color: inherit;
+
+  border: 0;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+}
+
+.navbar__theme-track {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 66px;
+  height: 34px;
+
+  padding: 0 8px;
+
+  overflow: hidden;
+
+  background: var(--cream);
+
+  border: 1px solid var(--foreground);
+  border-radius: 999px;
+
+  box-shadow:
+    3px 3px 0 var(--foreground);
+
+  transition:
+    background 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    transform 180ms ease;
+}
+
+.navbar__theme-toggle:hover .navbar__theme-track {
+  transform: translateY(-2px);
+}
+
+.navbar__theme-toggle:active .navbar__theme-track {
+  transform: translate(2px, 2px);
+
+  box-shadow:
+    1px 1px 0 var(--foreground);
+}
+
+.navbar__theme-toggle:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+
+  border-radius: 999px;
+}
+
+.navbar__theme-icon {
+  position: relative;
+
+  z-index: 1;
+
+  font-size: 0.75rem;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+.navbar__theme-icon--sun {
+  color: #d7672f;
+}
+
+.navbar__theme-icon--moon {
+  color: #879cff;
+}
+
+.navbar__theme-thumb {
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 26px;
+  height: 26px;
+
+  background: var(--dust);
+  color: #171918;
+
+  border: 1px solid #171918;
+  border-radius: 50%;
+
+  font-size: 0.75rem;
+  line-height: 1;
+
+  pointer-events: none;
+
+  transition:
+    transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 300ms ease,
+    color 300ms ease;
+}
+
+.navbar__theme-toggle--dark .navbar__theme-track {
+  background: #171b2d;
+}
+
+.navbar__theme-toggle--dark .navbar__theme-thumb {
+  background: var(--plum);
+  color: #f3efe6;
+
+  transform: translateX(32px);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 768px) {
   .navbar {
@@ -119,34 +327,21 @@
     gap: 0.3rem;
   }
 
-  .navbar__links a {
+  .navbar__links > a {
     padding: 0.4rem 0.5rem;
   }
-}   
 
-.navbar__resume {
-  padding: 0.55rem 0.8rem;
+  .navbar__theme-track {
+    width: 58px;
+    height: 31px;
+  }
 
-  border-radius: 999px;
+  .navbar__theme-thumb {
+    width: 23px;
+    height: 23px;
+  }
 
-  background: var(--forest);
-
-  color: var(--plum) !important;
-
-  border: 1px solid var(--forest);
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease;
-}
-
-.navbar__resume:hover {
-  transform: translateY(-2px);
-
-  background: var(--sage);
-
-  color: var(--foreground) !important;
-
-  border-color: var(--sage);
+  .navbar__theme-toggle--dark .navbar__theme-thumb {
+    transform: translateX(27px);
+  }
 }

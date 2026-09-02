@@ -1,3 +1,4 @@
+import ThemeToggle from "./ThemeToggle";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -21,6 +22,8 @@ export default function Navbar() {
         >
           RESUME ↗
         </a>
+
+        <ThemeToggle />
       </div>
     </nav>
   );

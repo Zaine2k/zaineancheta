@@ -1,4 +1,16 @@
 .about {
+  --about-body-text: rgba(28, 29, 24, 0.72);
+  --about-muted-text: rgba(28, 29, 24, 0.5);
+  --about-card-border: rgba(28, 29, 24, 0.12);
+
+  --about-education-background: #eee2cf;
+  --about-skills-background: #dfe7d5;
+
+  --about-chip-background: rgba(255, 255, 255, 0.46);
+  --about-chip-hover: rgba(255, 255, 255, 0.8);
+  --about-chip-border: rgba(28, 29, 24, 0.22);
+  --about-chip-hover-border: rgba(28, 29, 24, 0.42);
+
   position: relative;
 
   min-height: 100vh;
@@ -9,8 +21,45 @@
   flex-direction: column;
 
   background: var(--cream);
+  color: var(--foreground);
 
   overflow: hidden;
+
+  transition:
+    background-color 500ms ease,
+    color 350ms ease;
+}
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+html[data-theme="dark"] .about {
+  --about-body-text: rgba(236, 232, 220, 0.72);
+  --about-muted-text: rgba(236, 232, 220, 0.5);
+  --about-card-border: rgba(236, 232, 220, 0.14);
+
+  --about-education-background: #27231d;
+  --about-skills-background: #1e2720;
+
+  --about-chip-background: rgba(236, 232, 220, 0.06);
+  --about-chip-hover: rgba(236, 232, 220, 0.12);
+  --about-chip-border: rgba(236, 232, 220, 0.18);
+  --about-chip-hover-border: rgba(236, 232, 220, 0.4);
+}
+
+/* Ensure all regular text inherits the theme color */
+
+.about h2,
+.about h3,
+.about p,
+.about span,
+.about strong,
+.about div {
+  transition:
+    color 350ms ease,
+    background-color 350ms ease,
+    border-color 350ms ease;
 }
 
 /* =========================================
@@ -40,6 +89,14 @@
   transform: rotate(18deg);
 
   pointer-events: none;
+
+  transition:
+    background-color 500ms ease,
+    opacity 500ms ease;
+}
+
+html[data-theme="dark"] .about::before {
+  opacity: 0.09;
 }
 
 /* =========================================
@@ -55,8 +112,9 @@
   justify-content: space-between;
 
   padding-bottom: 1rem;
-
   margin-bottom: clamp(4rem, 8vw, 8rem);
+
+  color: var(--foreground);
 
   border-bottom: 1px solid var(--line);
 
@@ -93,6 +151,8 @@
 .about h2 {
   margin: 0;
 
+  color: var(--foreground);
+
   font-size: clamp(4rem, 9vw, 10rem);
 
   line-height: 0.82;
@@ -106,7 +166,6 @@
   font-family: var(--font-instrument-serif), serif;
 
   font-style: italic;
-
   font-weight: 400;
 
   color: var(--forest);
@@ -121,7 +180,7 @@
 
   line-height: 1.55;
 
-  color: rgba(28, 29, 24, 0.72);
+  color: var(--about-body-text);
 }
 
 /* =========================================
@@ -154,7 +213,6 @@
   position: relative;
 
   margin: 0;
-
   padding: 1.5rem;
 
   display: flex;
@@ -162,11 +220,16 @@
 
   min-width: 0;
 
-  background: #eee2cf;
+  background: var(--about-education-background);
+  color: var(--foreground);
 
-  border: 1px solid rgba(28, 29, 24, 0.12);
-
+  border: 1px solid var(--about-card-border);
   border-radius: 16px;
+
+  transition:
+    background-color 500ms ease,
+    color 350ms ease,
+    border-color 350ms ease;
 }
 
 .about__education-label {
@@ -181,7 +244,7 @@
 
   text-transform: uppercase;
 
-  color: rgba(28, 29, 24, 0.5);
+  color: var(--about-muted-text);
 }
 
 .about__education-content {
@@ -218,7 +281,7 @@
 
   line-height: 1.55;
 
-  color: rgba(28, 29, 24, 0.68);
+  color: var(--about-body-text);
 }
 
 .about__education-year {
@@ -235,7 +298,7 @@
 
   white-space: nowrap;
 
-  color: rgba(28, 29, 24, 0.52);
+  color: var(--about-muted-text);
 }
 
 /* =========================================
@@ -246,16 +309,20 @@
   position: relative;
 
   margin: 0;
-
   padding: 1.5rem;
 
   min-width: 0;
 
-  background: #dfe7d5;
+  background: var(--about-skills-background);
+  color: var(--foreground);
 
-  border: 1px solid rgba(28, 29, 24, 0.12);
-
+  border: 1px solid var(--about-card-border);
   border-radius: 16px;
+
+  transition:
+    background-color 500ms ease,
+    color 350ms ease,
+    border-color 350ms ease;
 }
 
 .about__skills-label {
@@ -270,7 +337,7 @@
 
   text-transform: uppercase;
 
-  color: rgba(28, 29, 24, 0.5);
+  color: var(--about-muted-text);
 }
 
 .about__skills-grid {
@@ -299,12 +366,11 @@
 
   text-transform: uppercase;
 
-  color: rgba(28, 29, 24, 0.48);
+  color: var(--about-muted-text);
 }
 
 .about__skills-items {
   display: flex;
-
   flex-wrap: wrap;
 
   gap: 0.4rem;
@@ -313,11 +379,11 @@
 .about__skills-items span {
   padding: 0.38rem 0.6rem;
 
-  border: 1px solid rgba(28, 29, 24, 0.22);
+  background: var(--about-chip-background);
+  color: var(--foreground);
 
+  border: 1px solid var(--about-chip-border);
   border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.46);
 
   font-family: var(--font-geist-mono), monospace;
 
@@ -331,15 +397,16 @@
   transition:
     transform 0.2s ease,
     background 0.2s ease,
+    color 0.2s ease,
     border-color 0.2s ease;
 }
 
 .about__skills-items span:hover {
   transform: translateY(-2px);
 
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--about-chip-hover);
 
-  border-color: rgba(28, 29, 24, 0.42);
+  border-color: var(--about-chip-hover-border);
 }
 
 /* =========================================

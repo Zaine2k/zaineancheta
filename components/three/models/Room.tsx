@@ -28,42 +28,45 @@ export default function Room() {
         const rowOffset =
           row % 2 === 0 ? 0 : boardWidth / 2;
 
-        return Array.from({ length: boardsPerRow }).map(
-          (_, column) => {
-            const x =
-              -6.5 +
-              column * boardWidth +
-              rowOffset;
+        return Array.from({
+          length: boardsPerRow,
+        }).map((_, column) => {
+          const x =
+            -6.5 +
+            column * boardWidth +
+            rowOffset;
 
-            const z =
-              floorStartZ +
-              row * boardDepth;
+          const z =
+            floorStartZ +
+            row * boardDepth;
 
-            const colorIndex =
-              (row + column * 2) % woodColors.length;
+          const colorIndex =
+            (row + column * 2) %
+            woodColors.length;
 
-            return (
-              <mesh
-                key={`board-${row}-${column}`}
-                position={[x, floorY, z]}
-                receiveShadow
-              >
-                <boxGeometry
-                  args={[
-                    boardWidth - 0.035,
-                    0.055,
-                    boardDepth - 0.035,
-                  ]}
-                />
+          return (
+            <mesh
+              key={`board-${row}-${column}`}
+              position={[x, floorY, z]}
+              receiveShadow
+            >
+              <boxGeometry
+                args={[
+                  boardWidth - 0.035,
+                  0.055,
+                  boardDepth - 0.035,
+                ]}
+              />
 
-                <meshStandardMaterial
-                  color={woodColors[colorIndex]}
-                  roughness={0.86}
-                />
-              </mesh>
-            );
-          }
-        );
+              <meshStandardMaterial
+                color={
+                  woodColors[colorIndex]
+                }
+                roughness={0.86}
+              />
+            </mesh>
+          );
+        });
       })}
 
       {/* =====================================
@@ -93,7 +96,7 @@ export default function Room() {
         {/* BASE */}
 
         <mesh receiveShadow>
-          <planeGeometry args={[5.4, 3.0]} />
+          <planeGeometry args={[5.4, 3]} />
 
           <meshStandardMaterial
             color="#efe7d6"
@@ -143,7 +146,7 @@ export default function Room() {
           position={[0.45, 0, 0.05]}
           rotation={[0, 0, 0.18]}
         >
-          <planeGeometry args={[0.32, 2.0]} />
+          <planeGeometry args={[0.32, 2]} />
 
           <meshStandardMaterial
             color="#4169e1"
@@ -228,114 +231,6 @@ export default function Room() {
       </mesh>
 
       {/* =====================================
-          CENTER WINDOW
-      ====================================== */}
-
-      <group position={[0, 1.0, -3.05]}>
-        {/* WINDOW GLASS */}
-
-        <mesh>
-          <planeGeometry args={[3.6, 2.6]} />
-
-          <meshStandardMaterial
-            color="#b9d8df"
-            roughness={0.25}
-            metalness={0.05}
-            transparent
-            opacity={0.62}
-          />
-        </mesh>
-
-        {/* OUTDOOR BACKING */}
-
-        <mesh position={[0, 0, -0.03]}>
-          <planeGeometry args={[3.5, 2.5]} />
-
-          <meshStandardMaterial
-            color="#8fb4ba"
-            roughness={1}
-          />
-        </mesh>
-
-        {/* WINDOW FRAME - TOP */}
-
-        <mesh position={[0, 1.35, 0.04]}>
-          <boxGeometry args={[3.9, 0.16, 0.14]} />
-
-          <meshStandardMaterial
-            color="#c7b49b"
-            roughness={0.8}
-          />
-        </mesh>
-
-        {/* WINDOW FRAME - BOTTOM */}
-
-        <mesh position={[0, -1.35, 0.04]}>
-          <boxGeometry args={[3.9, 0.16, 0.14]} />
-
-          <meshStandardMaterial
-            color="#c7b49b"
-            roughness={0.8}
-          />
-        </mesh>
-
-        {/* WINDOW FRAME - LEFT */}
-
-        <mesh position={[-1.88, 0, 0.04]}>
-          <boxGeometry args={[0.16, 2.85, 0.14]} />
-
-          <meshStandardMaterial
-            color="#c7b49b"
-            roughness={0.8}
-          />
-        </mesh>
-
-        {/* WINDOW FRAME - RIGHT */}
-
-        <mesh position={[1.88, 0, 0.04]}>
-          <boxGeometry args={[0.16, 2.85, 0.14]} />
-
-          <meshStandardMaterial
-            color="#c7b49b"
-            roughness={0.8}
-          />
-        </mesh>
-
-        {/* VERTICAL DIVIDER */}
-
-        <mesh position={[0, 0, 0.06]}>
-          <boxGeometry args={[0.11, 2.65, 0.1]} />
-
-          <meshStandardMaterial
-            color="#c7b49b"
-            roughness={0.8}
-          />
-        </mesh>
-
-        {/* HORIZONTAL DIVIDER */}
-
-        <mesh position={[0, 0, 0.06]}>
-          <boxGeometry args={[3.7, 0.11, 0.1]} />
-
-          <meshStandardMaterial
-            color="#c7b49b"
-            roughness={0.8}
-          />
-        </mesh>
-
-        {/* WINDOW SILL */}
-
-        <mesh position={[0, -1.48, 0.18]}>
-          <boxGeometry args={[4.15, 0.12, 0.42]} />
-
-          <meshStandardMaterial
-            color="#bba68d"
-            roughness={0.82}
-          />
-        </mesh>
-      </group>
-
-      {/* =====================================
           LEFT WALL
       ====================================== */}
 
@@ -369,7 +264,7 @@ export default function Room() {
       </mesh>
 
       {/* =====================================
-          BASEBOARD
+          BACK WALL BASEBOARD
       ====================================== */}
 
       <mesh position={[0, -2.02, -3.08]}>

@@ -1,20 +1,29 @@
 import "./Projects.css";
+import ExperienceScene from "./three/ExperienceScene";
 
 export default function Projects() {
   return (
     <section id="projects" className="projects">
+      <ExperienceScene />
+
       <div className="projects__eyebrow">
         <span>EXPERIENCE</span>
         <span>02</span>
       </div>
 
+      <h2 className="projects__title">EXPERIENCE</h2>
+
       <div className="projects__intro">
+        <span className="projects__intro-label">CAREER DIRECTION</span>
+
+        <h3>Data science, informed by software and interactive systems.</h3>
+
         <p>
-          Data science is the main focus of my career, but I&apos;ve also pursued
-          opportunities in software development, audio, and interactive media that
-          were too meaningful to pass up. These experiences have strengthened how I
-          build, communicate ideas, and turn technical work into engaging,
-          human-centered experiences.
+          Data science is the foundation of my career, strengthened by experience
+          across software development, audio, and interactive media. Across each
+          role, I&apos;ve learned to translate complex ideas into practical
+          systems, communicate across disciplines, and build technology with the
+          people using it in mind.
         </p>
       </div>
 
@@ -22,19 +31,33 @@ export default function Projects() {
         {/* BLANK AUDIO */}
         <article className="project project--blank">
           <div className="project__header">
-            <p className="project__type">
+            <p className="project__type project__role">
               FOUNDER &amp; SOFTWARE DEVELOPER
             </p>
-
-            <p className="project__type">AUG 2026 — PRESENT</p>
+            <p className="project__type project__date">AUG 2026 — PRESENT</p>
           </div>
 
           <h2>blank audio</h2>
 
           <p className="project__description">
-            Building audio plugins, DSP tools, and creative software with a
-            focus on minimal interfaces and expressive sound design.
+            Founded an independent audio-software company focused on accessible
+            plugins, expressive DSP tools, and minimal product design.
           </p>
+
+          <ul className="project__highlights">
+            <li>
+              Designed and shipped CORE Echo, a Windows VST3 delay and reverb
+              plugin featuring 17 factory presets and tempo-synced delay modes.
+            </li>
+            <li>
+              Built the product website and distribution workflow using React,
+              Supabase, Stripe, and a custom Windows installer.
+            </li>
+            <li>
+              Expanded the project into a four-person team and established weekly
+              development cycles across DSP, software, and product design.
+            </li>
+          </ul>
 
           <div className="project__meta">
             <span>JUCE</span>
@@ -57,10 +80,7 @@ export default function Projects() {
 
             <div className="project__embed-info">
               <span className="project__embed-domain">blankaudio.dev</span>
-
-              <span className="project__embed-title">
-                Visit Blank Audio ↗
-              </span>
+              <span className="project__embed-title">Visit Blank Audio ↗</span>
             </div>
           </a>
         </article>
@@ -68,20 +88,33 @@ export default function Projects() {
         {/* GLASS GECKO GAMES */}
         <article className="project project--depths">
           <div className="project__header">
-            <p className="project__type">
+            <p className="project__type project__role">
               ASSOCIATE PROGRAMMER / MUSIC COMPOSER
             </p>
-
-            <p className="project__type">AUG 2025 — PRESENT</p>
+            <p className="project__type project__date">AUG 2025 — PRESENT</p>
           </div>
 
           <h2>GLASS GECKO GAMES</h2>
 
           <p className="project__description">
-            Contributing to Scale the Depths through Unity development,
-            interactive audio implementation, debugging, and original
-            composition.
+            Contributing programming and original music to Scale the Depths, a
+            commercially released indie game that surpassed 100,000 copies sold.
           </p>
+
+          <ul className="project__highlights">
+            <li>
+              Implemented and tested event-driven audio behaviour using Unity and
+              C#, connecting music and sound to gameplay events.
+            </li>
+            <li>
+              Debugged audio and gameplay interactions across production builds,
+              improving consistency during active development.
+            </li>
+            <li>
+              Composed original soundtrack material and shaped musical transitions
+              around the game&apos;s pacing and underwater atmosphere.
+            </li>
+          </ul>
 
           <div className="project__meta">
             <span>UNITY</span>
@@ -104,10 +137,7 @@ export default function Projects() {
 
             <div className="project__embed-info">
               <span className="project__embed-domain">SCALE THE DEPTHS</span>
-
-              <span className="project__embed-title">
-                View on Steam ↗
-              </span>
+              <span className="project__embed-title">View on Steam ↗</span>
             </div>
           </a>
         </article>
@@ -115,9 +145,8 @@ export default function Projects() {
         {/* DATA SCIENCE & MACHINE LEARNING CLUB */}
         <article className="project project--dsmlc">
           <div className="project__header">
-            <p className="project__type">COMPETITION DIRECTOR</p>
-
-            <p className="project__type">APR 2025 — PRESENT</p>
+            <p className="project__type project__role">COMPETITION DIRECTOR</p>
+            <p className="project__type project__date">APR 2025 — PRESENT</p>
           </div>
 
           <h2>
@@ -127,11 +156,25 @@ export default function Projects() {
           </h2>
 
           <p className="project__description">
-            Leading the planning and execution of data science and machine
-            learning competitions at the University of Calgary, working with
-            industry partners to develop challenges, coordinate judging, and
-            create technical experiences for students.
+            Directing the competition program for the University of Calgary&apos;s
+            largest data science club and translating industry problems into
+            approachable technical challenges for students.
           </p>
+
+          <ul className="project__highlights">
+            <li>
+              Lead end-to-end competition planning, including challenge design,
+              dataset review, rules, participant resources, and event delivery.
+            </li>
+            <li>
+              Coordinate with industry partners and judges to align evaluation
+              criteria with practical data science and communication skills.
+            </li>
+            <li>
+              Advanced into competition leadership after earning 1st place in the
+              Beginner Category of the club&apos;s 2025 data science competition.
+            </li>
+          </ul>
 
           <div className="project__meta">
             <span>DATA SCIENCE</span>

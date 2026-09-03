@@ -64,7 +64,7 @@ export default function SmallTable() {
 
       {/* LOWER SUPPORT BAR */}
       <mesh position={[0, 0.05, 0]} material={darkWood} castShadow>
-        <boxGeometry args={[1.85, 0.12, 0.12]} />
+        <boxGeometry args={[1.85, 0.12, 0.92]} />
       </mesh>
     </group>
   );

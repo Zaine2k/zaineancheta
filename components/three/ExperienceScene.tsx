@@ -10,8 +10,6 @@ import AwardTrophy from "./models/AwardTrophy";
 import Guitar from "./models/Guitar";
 import GuitarAmp from "./models/GuitarAmp";
 import HeroSculpture from "./models/HeroSculpture";
-import PlantModel from "./models/PlantModel";
-import PlantModel2 from "./models/PlantModel2";
 import RecordPlayer from "./models/RecordPlayer";
 import Shelf from "./models/Shelf";
 import SmallTable from "./models/SmallTable";
@@ -42,14 +40,11 @@ function SpaceModel({
   const { viewport } = useThree();
 
   const edgeInset = 1.25;
-
   const x =
     side === "left"
       ? -viewport.width / 2 + edgeInset
       : viewport.width / 2 - edgeInset;
-
-  const verticalPosition =
-    viewport.height / 2 - viewport.height * y;
+  const verticalPosition = viewport.height / 2 - viewport.height * y;
 
   useFrame((_, delta) => {
     if (!model.current || reducedMotion) return;
@@ -71,14 +66,9 @@ function SpaceModel({
   );
 }
 
-function SideModels({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
+function SideModels({ reducedMotion }: { reducedMotion: boolean }) {
   return (
     <>
-      {/* SHELF */}
       <SpaceModel
         side="left"
         y={0.07}
@@ -91,7 +81,6 @@ function SideModels({
         <Shelf />
       </SpaceModel>
 
-      {/* GUITAR */}
       <SpaceModel
         side="right"
         y={0.14}
@@ -104,7 +93,6 @@ function SideModels({
         <Guitar />
       </SpaceModel>
 
-      {/* HERO SYNTH */}
       <SpaceModel
         side="left"
         y={0.24}
@@ -117,7 +105,6 @@ function SideModels({
         <HeroSculpture />
       </SpaceModel>
 
-      {/* RECORD PLAYER */}
       <SpaceModel
         side="right"
         y={0.33}
@@ -130,20 +117,6 @@ function SideModels({
         <RecordPlayer />
       </SpaceModel>
 
-      {/* PLANT */}
-      <SpaceModel
-        side="left"
-        y={0.43}
-        depth={0.25}
-        scale={0.7}
-        rotation={[0.12, 0.28, -0.18]}
-        spin={[-0.03, 0.1, 0.025]}
-        reducedMotion={reducedMotion}
-      >
-        <PlantModel />
-      </SpaceModel>
-
-      {/* GUITAR AMP */}
       <SpaceModel
         side="right"
         y={0.53}
@@ -156,7 +129,6 @@ function SideModels({
         <GuitarAmp />
       </SpaceModel>
 
-      {/* VINYL */}
       <SpaceModel
         side="left"
         y={0.63}
@@ -169,7 +141,6 @@ function SideModels({
         <Vinyl />
       </SpaceModel>
 
-      {/* SMALL TABLE */}
       <SpaceModel
         side="right"
         y={0.73}
@@ -182,7 +153,6 @@ function SideModels({
         <SmallTable />
       </SpaceModel>
 
-      {/* TROPHY */}
       <SpaceModel
         side="left"
         y={0.84}
@@ -195,99 +165,42 @@ function SideModels({
         <AwardTrophy />
       </SpaceModel>
 
-      {/* SECOND PLANT */}
-      <SpaceModel
-        side="right"
-        y={0.83}
-        depth={0.2}
-        scale={0.98}
-        rotation={[-0.12, 0.3, 0.16]}
-        spin={[0.045, -0.065, 0.03]}
-        reducedMotion={reducedMotion}
-      >
-        <PlantModel2 />
-      </SpaceModel>
     </>
   );
 }
 
 export default function ExperienceScene() {
-  const [reducedMotion, setReducedMotion] =
-    useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    );
-
-    const updatePreference = () => {
-      setReducedMotion(media.matches);
-    };
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setReducedMotion(media.matches);
 
     updatePreference();
-
-    media.addEventListener(
-      "change",
-      updatePreference,
-    );
-
-    return () => {
-      media.removeEventListener(
-        "change",
-        updatePreference,
-      );
-    };
+    media.addEventListener("change", updatePreference);
+    return () => media.removeEventListener("change", updatePreference);
   }, []);
 
   return (
-    <div
-      className="experience-scene__canvas"
-      aria-hidden="true"
-    >
+    <div className="experience-scene__canvas" aria-hidden="true">
       <Canvas
         orthographic
-        camera={{
-          position: [0, 0, 10],
-          zoom: 100,
-        }}
+        camera={{ position: [0, 0, 10], zoom: 100 }}
         dpr={[1, 1.5]}
-        gl={{
-          alpha: true,
-          antialias: true,
-        }}
+        gl={{ alpha: true, antialias: true }}
       >
         <ambientLight intensity={1.55} />
-
-        <hemisphereLight
-          args={[
-            "#f2efe7",
-            "#1c1d19",
-            1.15,
-          ]}
-        />
-
-        <directionalLight
-          position={[5, 7, 8]}
-          intensity={2.35}
-        />
-
+        <hemisphereLight args={["#f2efe7", "#1c1d19", 1.15]} />
+        <directionalLight position={[5, 7, 8]} intensity={2.35} />
         <directionalLight
           position={[-5, -2, 4]}
           intensity={0.95}
           color="#c88262"
         />
-
-        <pointLight
-          position={[0, 0, 6]}
-          intensity={0.7}
-          color="#8fa37e"
-        />
+        <pointLight position={[0, 0, 6]} intensity={0.7} color="#8fa37e" />
 
         <Suspense fallback={null}>
-          <SideModels
-            reducedMotion={reducedMotion}
-          />
-
+          <SideModels reducedMotion={reducedMotion} />
           <Preload all />
         </Suspense>
       </Canvas>

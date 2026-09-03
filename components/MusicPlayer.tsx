@@ -15,6 +15,9 @@ export default function MusicPlayer() {
   const [playing, setPlaying] =
     useState(false);
 
+  const [hidden, setHidden] =
+    useState(false);
+
   const [currentTime, setCurrentTime] =
     useState(0);
 
@@ -43,14 +46,19 @@ export default function MusicPlayer() {
   const updateDuration = () => {
     const audio = audioRef.current;
 
-    if (!audio) return;
-
     if (
-      Number.isFinite(audio.duration) &&
-      audio.duration > 0
+      !audio ||
+      !Number.isFinite(audio.duration) ||
+      audio.duration <= 0
     ) {
-      setDuration(audio.duration);
+      return;
     }
+
+    setDuration((previousDuration) =>
+      previousDuration === audio.duration
+        ? previousDuration
+        : audio.duration
+    );
   };
 
   const handleTimeUpdate = () => {
@@ -75,11 +83,12 @@ export default function MusicPlayer() {
     if (!Number.isFinite(newTime)) return;
 
     audio.currentTime = newTime;
-
     setCurrentTime(newTime);
   };
 
-  const formatTime = (seconds: number) => {
+  const formatTime = (
+    seconds: number
+  ) => {
     if (!Number.isFinite(seconds)) {
       return "0:00";
     }
@@ -105,13 +114,20 @@ export default function MusicPlayer() {
   const progress =
     duration > 0
       ? Math.min(
-          (currentTime / duration) * 100,
+          (safeCurrentTime / duration) *
+            100,
           100
         )
       : 0;
 
   return (
-    <div className="music-player">
+    <div
+      className={`music-player ${
+        hidden
+          ? "music-player--hidden"
+          : ""
+      }`}
+    >
       <audio
         ref={audioRef}
         src="/audio/THE%20MAN%20WHO%20BEAT%20THE%20MAN%20INSTRUMENTAL.mp3"
@@ -120,8 +136,6 @@ export default function MusicPlayer() {
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={updateDuration}
         onDurationChange={updateDuration}
-        onLoadedData={updateDuration}
-        onCanPlay={updateDuration}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onError={() => {
@@ -131,76 +145,111 @@ export default function MusicPlayer() {
         }}
       />
 
-      <button
-        type="button"
-        onClick={toggleMusic}
-        className="music-player__button"
-        aria-label={
-          playing
-            ? "Pause music"
-            : "Play music"
-        }
-      >
-        {playing ? "PAUSE" : "PLAY"}
-      </button>
-
-      <div className="music-player__info">
-        <span className="music-player__artist">
-          ARTIST: ZAINE
-        </span>
-
-        <div className="music-player__marquee">
+      {hidden ? (
+        <button
+          type="button"
+          className="music-player__show"
+          onClick={() => setHidden(false)}
+          aria-label="Show music player"
+          title="Show music player"
+        >
           <span
-            className={`music-player__track ${
+            className={
               playing
-                ? "music-player__track--playing"
-                : ""
-            }`}
+                ? "music-player__note music-player__note--playing"
+                : "music-player__note"
+            }
+            aria-hidden="true"
           >
-            THE MAN WHO BEAT THE MAN
-            INSTRUMENTAL
+            ♪
           </span>
-        </div>
+        </button>
+      ) : (
+        <>
+          <button
+            type="button"
+            className="music-player__hide"
+            onClick={() => setHidden(true)}
+            aria-label="Hide music player"
+            title="Hide music player"
+          >
+            ×
+          </button>
 
-        <div className="music-player__progress">
-          <input
-            type="range"
-            min={0}
-            max={duration}
-            step={0.01}
-            value={safeCurrentTime}
-            disabled={duration <= 0}
-            onInput={handleScrub}
-            className="music-player__scrubber"
-            aria-label="Song position"
-            style={{
-              background: `linear-gradient(
-                to right,
-                var(--foreground) 0%,
-                var(--foreground) ${progress}%,
-                rgba(23, 25, 24, 0.18) ${progress}%,
-                rgba(23, 25, 24, 0.18) 100%
-              )`,
-            }}
-          />
+          <button
+            type="button"
+            onClick={toggleMusic}
+            className="music-player__button"
+            aria-label={
+              playing
+                ? "Pause music"
+                : "Play music"
+            }
+          >
+            {playing ? "PAUSE" : "PLAY"}
+          </button>
 
-          <div className="music-player__time">
-            <span>
-              {formatTime(currentTime)}
+          <div className="music-player__info">
+            <span className="music-player__artist">
+              ARTIST: ZAINE
             </span>
 
-            <span>
-              {formatTime(duration)}
+            <div className="music-player__marquee">
+              <span
+                className={`music-player__track ${
+                  playing
+                    ? "music-player__track--playing"
+                    : ""
+                }`}
+              >
+                THE MAN WHO BEAT THE MAN
+                INSTRUMENTAL
+              </span>
+            </div>
+
+            <div className="music-player__progress">
+              <input
+                type="range"
+                min={0}
+                max={duration || 0}
+                step={0.01}
+                value={safeCurrentTime}
+                disabled={duration <= 0}
+                onInput={handleScrub}
+                className="music-player__scrubber"
+                aria-label="Song position"
+                style={{
+                  background: `linear-gradient(
+                    to right,
+                    var(--foreground) 0%,
+                    var(--foreground) ${progress}%,
+                    rgba(23, 25, 24, 0.18) ${progress}%,
+                    rgba(23, 25, 24, 0.18) 100%
+                  )`,
+                }}
+              />
+
+              <div className="music-player__time">
+                <span>
+                  {formatTime(
+                    safeCurrentTime
+                  )}
+                </span>
+
+                <span>
+                  {formatTime(duration)}
+                </span>
+              </div>
+            </div>
+
+            <span className="music-player__status">
+              {playing
+                ? "NOW PLAYING"
+                : "SOUND OFF"}
             </span>
           </div>
-        </div>
-
-        <span className="music-player__status">
-          {playing
-            ? "NOW PLAYING"
-            : "SOUND OFF"}
-        </span>
-      </div>
+        </>
+      )}
     </div>
   );
 }

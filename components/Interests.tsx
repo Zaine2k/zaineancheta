@@ -24,7 +24,7 @@ export default function Interests() {
       <div className="interests__grid">
         {/* INTERESTS */}
         <div className="interests__panel interests__panel--hobbies">
-          <div className="interests__label">INTERESTS</div>
+          <div className="interests__label">INTERESTS & QUOTES</div>
 
           <div className="interests__tags">
             <div className="interests__tag">
@@ -59,18 +59,25 @@ export default function Interests() {
           </div>
 
           <p className="interests__note">
-            Producing records, composing, sound design, cinema, interactive
-            storytelling, fiction, and building strange things with computers.
-          </p>
-
-          <p className="interests__note">
-            #1 Scottie Barnes superfan, lifelong basketball analytics nerd, boxing fan,
-            synthesizer enthusiast, and former gamer (1x Masters Apex Legends, 2x Celestial Marvel Rivals | Top 100 Dr. Strange NA).
+            Scottie Barnes superfan, lifelong basketball analytics nerd, boxing fan,
+            synthesizer enthusiast, sidequest chaser and gamer.
           </p>
 
           <p className="interests__note interests__note--quote">
             &quot;Had I not created my whole world, I would certainly have died
             in other people&apos;s.&quot; — Anaïs Nin
+          </p>
+
+          <p className="interests__note interests__note--quote">
+            &quot;If you have to think about it too long, it's probably wack.&quot; — Madlib
+          </p>
+
+          <p className="interests__note interests__note--quote">
+            &quot;Keep cool, but care.&quot; — Thomas Pynchon
+          </p>
+
+          <p className="interests__note interests__note--quote">
+            &quot;I’ve failed over and over and over again in my life. And that is why I succeed.&quot; — Michael Jordan
           </p>
         </div>
 

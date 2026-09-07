@@ -10,13 +10,11 @@ export default function About() {
 
       <div className="about__content">
         <h2>
-          I BUILD THINGS
+          DATA SCIENCE,
           <br />
-          BETWEEN <em>CODE </em>,
+          POWERED BY A
           <br />
-          DATA, SOUND
-          <br />
-          &amp; CULTURE.
+          <em>CREATIVE MIND.</em>
         </h2>
 
         <p>

@@ -638,3 +638,86 @@
 
   border-color: #6c5068;
 }
+
+.work__github {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  margin-top: 28px;
+  padding: 14px 18px;
+  min-width: 190px;
+
+  color: var(--color-primary);
+  background: transparent;
+  border: 1px solid var(--color-primary);
+
+  font-size: 12px;
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  overflow: hidden;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.work__github::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: var(--color-primary);
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  z-index: 0;
+}
+
+.work__github::after {
+  content: "↗";
+  position: relative;
+  z-index: 1;
+
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.work__github span {
+  position: relative;
+  z-index: 1;
+}
+
+.work__github:hover {
+  color: var(--color-background);
+  transform: translateY(-2px);
+}
+
+.work__github:hover::before {
+  transform: translateX(0);
+}
+
+.work__github:hover::after {
+  transform: translate(3px, -3px);
+}
+
+.work__github:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.work__github:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work__github,
+  .work__github::before,
+  .work__github::after {
+    transition: none;
+  }
+}

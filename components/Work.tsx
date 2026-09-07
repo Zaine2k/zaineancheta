@@ -9,11 +9,23 @@ export default function Work() {
       </div>
 
       <div className="work__intro">
-        <h2>
-          THINGS I&apos;VE
-          <br />
-          <em>BUILT.</em>
-        </h2>
+        <div>
+          <h2>
+            THINGS I&apos;VE
+            <br />
+            <em>BUILT.</em>
+          </h2>
+
+          <a
+            href="https://github.com/Zaine2k"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="work__github"
+            aria-label="View Zaine Ancheta's GitHub profile"
+          >
+            <span>VIEW GITHUB</span>
+          </a>
+        </div>
 
         <p>
           A selection of technical projects across data science, software,
@@ -40,7 +52,7 @@ export default function Work() {
           </h3>
 
           <p className="work-card__description">
-            Analyzed over 300k+ oil fracturing records to identify operational
+            Analyzed over 300k oil fracturing records to identify operational
             patterns across North America and communicate performance insights
             through data analysis and visualization.
           </p>
@@ -252,7 +264,8 @@ export default function Work() {
           </h3>
 
           <p className="work-card__description">
-            Built a lightweight cryptography website for simple Caesar cipher encryption, decryption and text modification tools.
+            Built a lightweight cryptography website for simple Caesar cipher
+            encryption, decryption, and text-modification tools.
           </p>
 
           <div className="work-card__details">
@@ -260,8 +273,11 @@ export default function Work() {
               <span className="work-card__label">WHAT I DID</span>
 
               <p>
-                Implemented a web application with a simple user interface for encrypting and decrypting text using the Caesar cipher, 
-                along with additional text modification features. Implemented all the encryption logic in JavaScript, and styled the application using HTML and CSS.
+                Implemented a web application with a simple user interface for
+                encrypting and decrypting text using the Caesar cipher, along
+                with additional text-modification features. Built the encryption
+                logic in JavaScript and styled the application using HTML and
+                CSS.
               </p>
             </div>
           </div>

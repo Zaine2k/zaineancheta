@@ -10,18 +10,19 @@ export default function About() {
 
       <div className="about__content">
         <h2>
-          DATA SCIENCE,
-          <br />
-          POWERED BY A
-          <br />
-          <em>CREATIVE MIND.</em>
-        </h2>
+        DATA SCIENCE,
+        <br />
+        BUILT WITH
+        <br />
+        <em>CREATIVE INSTINCT.</em>
+      </h2>
 
         <p>
           I&apos;m a third-year Computer Science student at the University of
-          Calgary, working across data science, software development, audio, and
-          interactive media. I&apos;m especially interested in turning data into
-          meaningful insights, stories, and interactive experiences.
+          Calgary interested in the space between data and creativity. I build
+          machine learning models, analyze real-world datasets, develop software,
+          and occasionally make computers produce music. I&apos;m drawn to problems
+          where technical thinking and creative experimentation can coexist.
         </p>
       </div>
 

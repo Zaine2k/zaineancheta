@@ -130,7 +130,7 @@ export default function MusicPlayer() {
     >
       <audio
         ref={audioRef}
-        src="/audio/THE%20MAN%20WHO%20BEAT%20THE%20MAN%20INSTRUMENTAL.mp3"
+        src="/audio/hesi%20pull%20up.mp3"
         loop
         preload="metadata"
         onTimeUpdate={handleTimeUpdate}
@@ -202,8 +202,7 @@ export default function MusicPlayer() {
                     : ""
                 }`}
               >
-                THE MAN WHO BEAT THE MAN
-                INSTRUMENTAL
+                hesi pull up
               </span>
             </div>
 

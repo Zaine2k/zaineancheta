@@ -17,7 +17,7 @@ export default function Interests() {
         <p>
           Outside of coding, I spend most of my time around music, film,
           games, writing, and books. Most of those interests eventually find
-          their way back into the things I build anyway.
+          their way back into the things I build.
         </p>
       </div>
 
@@ -66,14 +66,6 @@ export default function Interests() {
           <p className="interests__note interests__note--quote">
             &quot;Had I not created my whole world, I would certainly have died
             in other people&apos;s.&quot; — Anaïs Nin
-          </p>
-
-          <p className="interests__note interests__note--quote">
-            &quot;If you have to think about it too long, it's probably wack.&quot; — Madlib
-          </p>
-
-          <p className="interests__note interests__note--quote">
-            &quot;Keep cool, but care.&quot; — Thomas Pynchon
           </p>
 
           <p className="interests__note interests__note--quote">
